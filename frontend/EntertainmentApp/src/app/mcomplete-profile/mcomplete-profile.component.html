@@ -1,0 +1,71 @@
+<div class="">
+    <!-- <div class="col p-0">
+        <img src="../../assets/Completed steps-amico.png" class="img-responsive" width="90%" height="100%" alt="">
+    </div> -->
+    <div class=" p-0">
+        <div class="container mx-auto mt-4 w-100">
+                <h3 class="text-warning">Hey Musician! Your Profile is 50% Complete...😊 Complete Your Profile!</h3>
+            <mat-slider  color="accent"
+                    class="example-margin w-100 text-warning"
+                    [disabled]="disabled"
+                    [max]="max"
+                    [min]="min"
+                    [step]="step"
+                    [discrete]="thumbLabel"
+                    [showTickMarks]="showTicks">
+                <input matSliderThumb [(ngModel)]="value" color="accent" class="w-100 text-warning">
+            </mat-slider>
+        </div>
+        
+        <div class="border-start border-end border-warning container p-0">
+            <div class=" mt-4 p-0">
+                <div class=" px-4">
+                    <mat-form-field class="w-100 mat-form-field " >
+                        <mat-label color="accent">Select Category</mat-label>
+                        <mat-select [(value)]="selected"  class="" required>
+                            <!-- <mat-option>None</mat-option> -->
+                            <mat-option value="Artist">Artist</mat-option>
+                            <mat-option value="Band">Band</mat-option>
+                            <mat-option value="DJ">DJ</mat-option>
+                        </mat-select>
+                        <!-- <mat-error></mat-error> -->
+                    </mat-form-field>
+                    <!-- <p>You selected: {{selected}}</p> -->
+                </div>
+                <div class="px-4">
+                    <mat-form-field class="w-100" >
+                        <mat-label>Country</mat-label>
+                        <input type="text" matInput value="country" [(ngModel)]="country">
+                    </mat-form-field>
+                </div>
+                <div class="px-4">
+                    <mat-form-field class="w-100" >
+                        <mat-label>Town</mat-label>
+                        <input type="text" matInput value="town" [(ngModel)]="town">
+                    </mat-form-field>
+                </div>
+                <div class="px-4">
+                    <mat-form-field class="w-100" >
+                        <mat-label>Price Range</mat-label>
+                        <input type="text" matInput value="priceRange" [(ngModel)]="priceRange">
+                    </mat-form-field>
+                </div>
+                <div class="px-4 ">
+                    <div class="w-100">
+                        <mat-label class="text-warning">Upload photo</mat-label>
+                        <input type="file" value="image" class="w-100 btn btn-warning form-control" [(ngModel)]="image">
+                    </div>
+                </div>
+                <div class=" px-4 my-2 ">
+                    <div class="w-100 d-flex flex-row-reverse me-4 px-4">
+                        <button mat-raised-button  class="text-warning" (click)="next()">
+                            <mat-icon class="text-warning">arrow_forward_ios</mat-icon>
+                            Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

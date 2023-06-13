@@ -1,0 +1,19 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.title{
+    font-family: 'Inspiration', cursive;
+    font-weight: 900;
+    font-size: 3rem;
+}
+.border-start{
+    border-left: 10px solid #000;
+}
+.align-center{
+    /* text-align: center; */
+    justify-content: center;
+    align-self: auto;
+}

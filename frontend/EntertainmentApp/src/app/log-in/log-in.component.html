@@ -1,0 +1,34 @@
+<div class="container col-sm-12 shadow-sm border-start border-end border-warning mt-5 col-md-6">
+    <div class="p-4 ">
+        <h1 class="text-center text-decoration-underline text-warning">Sign In Here</h1>
+        <p class="text-center text-warning text-decoration-none"><mat-slide-toggle [(ngModel)]="isChecked">SignUp as a musician</mat-slide-toggle></p>
+        <div class="w-100 px-4 mx-auto">
+
+            <p class="text-center text-danger">{{ErrorMsg}}</p>
+            <p *ngIf="Response==false" class="text-danger text-center">{{ResponseErrorMsg}}</p>
+            <mat-form-field class="w-100">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput matNativeControl [(ngModel)]="email"  placeholder="Ex. pat@example.com" minlength="7" required class="w-100">
+                <mat-error *ngIf="emailControl.invalid">{{emailErr}}</mat-error>
+            </mat-form-field>
+        </div>
+        <div class="w-100 px-4 mx-auto">
+            <mat-form-field class="w-100">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="pasWord" >
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon class="text-warning">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+        <div class="p-4">
+            <button mat-raised-button color="accent" class="w-100" (click)="Login()">Submit</button>
+                
+        </div>
+        <div>
+            <p class="text-center">Yet to have an Account? <a routerLink="/signup" class="text-warning">Sign Up here</a></p>
+        </div>
+        <div>
+</div>
+</div>
+

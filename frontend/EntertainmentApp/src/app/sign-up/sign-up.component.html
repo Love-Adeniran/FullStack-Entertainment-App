@@ -1,0 +1,69 @@
+
+<div class="container col-sm-12 shadow-sm border-end border-start border-warning mt-4 col-md-6">
+    <div class="p-4 ">
+        <h1 class="text-center text-warning display-6">Create an Account</h1>
+        <div class="text-end">
+            <p class="text-center text-warning text-decoration-none"><mat-slide-toggle [(ngModel)]="isChecked">SignUp as a musician</mat-slide-toggle></p>
+        </div>
+        <p class="text-center text-danger">{{generalErrorMsg}}</p>
+        <div class=" mx-auto mt-4">
+            <div class="w-100 mx-auto px-4 " >
+                <mat-form-field class="w-100">
+                    <mat-label>First Name</mat-label>
+                    <input matInput placeholder="First Name" [(ngModel)]="firstName" #fname="ngModel" required minlength="2" maxlength="20" [class.is.valid]="fname.valid" [class.is.invalid]="fname.invalid">
+                    <mat-error *ngIf="fname.invalid">{{ErrorMsg}}</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="w-100 mx-auto px-4 " >
+                <mat-form-field class="w-100">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput placeholder="Last Name" [(ngModel)]="lastName" #lname="ngModel" required minlength="2" maxlength="20" [class.is.valid]="lname.valid" [class.is.invalid]="lname.invalid">
+                    <mat-error *ngIf="lname.invalid">{{ErrorMsg}}</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="w-100 mx-auto px-4 " *ngIf="isChecked==true">
+                <mat-form-field class="w-100">
+                    <mat-label>Nick Name</mat-label>
+                    <input matInput placeholder="Nick Name" [(ngModel)]="nickName" #fname="ngModel" required minlength="5" maxlength="100" [class.is.valid]="fname.valid" [class.is.invalid]="fname.invalid">
+                    <mat-error *ngIf="fname.invalid">{{ErrorMsg}}</mat-error>
+                </mat-form-field>
+            </div>
+
+            <div class="w-100 px-4 mx-auto">
+                <mat-form-field class="w-100">
+                    <mat-label>Phone Number</mat-label>
+                    <span matPrefix>+234 &nbsp;</span>
+                    <input matInput type="number" placeholder="Phone Number" [(ngModel)]="pNumber" #phone="ngModel" required minlength="10" maxlength="10" [class.is.valid]="phone.valid" [class.is.invalid]="phone.invalid">
+                    <mat-icon matSuffix class="text-warning">phone</mat-icon>
+                    <mat-error *ngIf="phone.invalid">{{ErrorMsg}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="w-100 px-4 mx-auto">
+                <mat-form-field class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input matInput matNativeControl #Email="ngModel" [(ngModel)]="email"  placeholder="Ex. pat@example.com" minlength="7" required class="w-100">
+                    <mat-error *ngIf="emailControl.invalid">{{emailErr}}</mat-error>
+                </mat-form-field>
+            </div>
+            <div class="w-100 px-4 mx-auto">
+                <mat-form-field class="w-100">
+                    <mat-label>Password</mat-label>
+                    <input matInput [type]="hide ? 'password' : 'text'" [(ngModel)]="pasWord" >
+                    <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                    <mat-icon class="text-warning">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <div class="p-4">
+                <button mat-raised-button color="accent" class="w-100" (click)="submit()">Submit</button> 
+                <!-- (click)="openSnackBar(message.value, action.value)" -->
+            </div>
+            <div>
+                <p class="text-center">Already have an Account? <a routerLink="/signin" class="text-warning">Login</a></p>
+            </div>
+
+        </div>
+    </div>
+</div>

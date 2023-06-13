@@ -1,0 +1,60 @@
+<!-- <p>dashboard works!</p> -->
+<mat-toolbar class="bg-light border-warning border-bottom ">
+    <div class="col-6">
+        <span class="text-warning">bat l'amour Events</span>
+    </div>
+    <div class="col-6 mx-end text-end text-warning">
+        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"><mat-icon>favorite</mat-icon>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"><mat-icon>share</mat-icon>
+        </button>
+    </div>
+</mat-toolbar>
+<mat-tab-group headerPosition="below" color="accent" >
+    <div >
+        <mat-tab >
+            <ng-template mat-tab-label>
+                <mat-icon class="example-tab-icon" color="accent">home</mat-icon>
+            Discover
+            </ng-template>
+            <app-discover/>
+        </mat-tab>
+    </div>
+    <div>
+        <mat-tab >
+            <ng-template mat-tab-label >
+                <mat-icon class="example-tab-icon" color="accent">search</mat-icon>
+                Search
+            </ng-template>
+            Content 2
+        </mat-tab>
+    </div>
+    <div>
+        <mat-tab >
+            <ng-template mat-tab-label >
+                <mat-icon class="example-tab-icon" color="accent">book_online</mat-icon>
+                Bookings
+            </ng-template>
+            <app-bookings/>
+        </mat-tab>
+    </div>
+    <div>
+        <mat-tab >
+            <ng-template mat-tab-label >
+                <mat-icon class="example-tab-icon" color="accent">notifications</mat-icon>
+                Notifications
+            </ng-template>
+            <app-notifications/>
+        </mat-tab>
+    </div>
+    <div>
+        <mat-tab >
+            <ng-template mat-tab-label >
+                <mat-icon class="example-tab-icon" color="accent">account_circle</mat-icon>
+                Profile
+            </ng-template>
+            <app-profile/>
+        </mat-tab>
+    </div>
+
+</mat-tab-group>
