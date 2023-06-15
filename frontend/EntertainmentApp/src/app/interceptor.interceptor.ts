@@ -10,8 +10,8 @@ export class InterceptorInterceptor implements HttpInterceptor {
     intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
         // let guest_jwt = localStorage.getItem('guest_jwt');
         let users_jwt = localStorage.getItem('users_jwt');
-        console.log(users_jwt);
-        console.log("hi");
+        // console.log(users_jwt);
+        // console.log("hi");
         if(users_jwt){
             return next.handle(request.clone({setHeaders: {authorization: `Bearer ${users_jwt}`}}))
         }else{

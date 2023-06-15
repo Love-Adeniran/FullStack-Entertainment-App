@@ -30,6 +30,9 @@ export class EntertainmentServiceService {
     GuestDashBoard(){
         return this.httpClient.get<any>(`${this.baseUrl}/guestDashboard.php`)
     }
+    GetUser(){
+        return this.httpClient.get<any>(`${this.baseUrl}/getUser.php`)
+    }
 
     // For Musician
     MusicianSignUp(userObj:object){
@@ -41,5 +44,8 @@ export class EntertainmentServiceService {
     }
     MusicianInsertInfo(userObj:object){
         return this.httpClient.post<object>(`${this.baseUrl}/musicianInsertProfile.php`,userObj)
+    }
+    MusicianGetInfo(){
+        return this.httpClient.get<object>(`${this.baseUrl}/musicianGetProfile.php`)
     }
 }

@@ -15,28 +15,29 @@
     </mat-toolbar>
     <mat-nav-list >
         <a mat-list-item routerLink="/musiciandashboard/profile" 
-    class="rounded-pill text-center my-2 bg-dark" >
-            <mat-icon class="fs-3 text-light">account_circle</mat-icon> 
-            <span class="text-light rounded-pill p-2 mx-2 bg-warning">Profile</span> 
-        </a>
-        <a mat-list-item routerLink="/songlist" class="rounded-pill text-center my-2 bg-dark" >
-            <mat-icon class="fs-3 text-light">library_music</mat-icon> 
-            <span class="text-light rounded-pill p-2 mx-2 bg-warning">Song List</span>
-        </a>
-        <a mat-list-item routerLink="/videos"  class="rounded-pill text-center my-2 bg-dark" >
-            <mat-icon class="fs-3 text-light">play_circle</mat-icon> 
-            <span class="text-light rounded-pill p-2 mx-2 bg-warning">Videos</span>
-        </a>
-        <a mat-list-item routerLink="/about"  class="rounded-pill text-center my-2 bg-dark" >
-            <mat-icon class="fs-3 text-light">account_circle</mat-icon> 
-            <span class="text-light rounded-pill p-2 mx-2 bg-warning">About</span>
-        </a>
-        
-    </mat-nav-list>
+        class="rounded-pill text-center my-2 bg-dark" >
+        <mat-icon class="fs-3 text-light">account_circle</mat-icon> 
+        <span class="text-light rounded-pill p-2 mx-2 bg-warning">Profile</span> 
+    </a>
+    <a mat-list-item routerLink="/songlist" class="rounded-pill text-center my-2 bg-dark" >
+        <mat-icon class="fs-3 text-light">library_music</mat-icon> 
+        <span class="text-light rounded-pill p-2 mx-2 bg-warning">Song List</span>
+    </a>
+    <a mat-list-item routerLink="/videos"  class="rounded-pill text-center my-2 bg-dark" >
+        <mat-icon class="fs-3 text-light">play_circle</mat-icon> 
+        <span class="text-light rounded-pill p-2 mx-2 bg-warning">Videos</span>
+    </a>
+    <a mat-list-item routerLink="/about"  class="rounded-pill text-center my-2 bg-dark" >
+        <mat-icon class="fs-3 text-light">account_circle</mat-icon> 
+        <span class="text-light rounded-pill p-2 mx-2 bg-warning">About</span>
+    </a>
+    
+</mat-nav-list>
+    <!-- <h2 class="text-warning">{{username}}</h2> -->
 </mat-sidenav>
 <mat-sidenav-content>
     <mat-toolbar  class="bg-warning ">
-    <button type="button" aria-label="Toggle sidenav" mat-icon-button
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button
         (click)="drawer.toggle()" *ngIf="isHandset$ | async" >
         <mat-icon aria-label="Side nav toggle icon text-light">menu</mat-icon>
     </button>
@@ -50,9 +51,9 @@
             <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"><mat-icon>share</mat-icon>
             </button>
         </div>
-
+        
     </div>
-    </mat-toolbar>
+</mat-toolbar>
     <router-outlet/>
 
     <!-- Add Content Here -->

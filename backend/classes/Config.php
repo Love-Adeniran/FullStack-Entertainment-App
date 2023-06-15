@@ -1,6 +1,8 @@
 <?php
     header("Access-Control-Allow-Origin: *");
     header("Access-Control-Allow-Headers: Content-Type, authorization");
+    use Firebase\JWT\JWT;
+    use Firebase\JWT\Key;
     class Config{
         protected $host='localhost';
         protected $username='root';

@@ -7,11 +7,14 @@ import { EntertainmentServiceService } from '../services/entertainment-service.s
     styleUrls: ['./dashboard-guest.component.css']
 })
 export class GuestDashboardComponent {
-    constructor(public e_service : EntertainmentServiceService){}
+    // constructor(public e_service : EntertainmentServiceService){}
 
-    ngOnInit():void{
-        this.e_service.GuestDashBoard()
+    // ngOnInit():void{
+    //     this.e_service.GuestDashBoard().subscribe((data:any)=>{
+    //         console.log(data);
+            
+    //     })
             
         
-    }
+    // }
 }

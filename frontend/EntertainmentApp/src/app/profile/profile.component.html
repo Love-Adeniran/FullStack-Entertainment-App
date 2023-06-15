@@ -1,3 +1,39 @@
-<p>profile works!</p>
-
-  
+<div >
+    <ng-container color='warn'>
+        <!-- <img [src]="user.image" alt="profile pic" class="profile-pic"> -->
+        
+        <mat-card class="example-card p-4">
+            <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title><p>{{user.full_name}}</p></mat-card-title>
+                <mat-card-subtitle><p>@{{user.nick_name}}</p></mat-card-subtitle>
+                <mat-card-subtitle><p>{{user.category}}</p></mat-card-subtitle>
+            </mat-card-header>
+            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+            <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+            
+            <mat-card-content class="p-4">
+                <p><b>Email</b> : {{user.email}}</p>
+                <p><b>Phone Number</b> : {{user.phone_number}}</p>
+                <p><b>Country</b> : {{user.country}}</p>
+                
+            </mat-card-content>
+            <mat-card-actions>
+                <button mat-button>Edit profile</button>
+                <button mat-button>SHARE</button>
+            </mat-card-actions>
+        </mat-card>
+    </ng-container>
+</div>
+<app-mcomplete-profile/>
+<!-- <div class="col-lg-9 col-md-5 col-12 shadow-lg alert alert-dark">
+    <h1>Examples of code editor</h1>
+    <dl>
+        <dt>VS Code</dt>
+        <dd>popular and easy to use</dd>
+        <dd>Has a wide range of language it works with</dd>
+        <dt>Sublime Text</dt>
+        <dd>Not popular as such</dd>
+        <dd>Not fine</dd>
+    </dl>
+</div> -->

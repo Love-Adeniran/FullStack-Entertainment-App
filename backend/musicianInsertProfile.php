@@ -3,23 +3,31 @@
     require "vendor/autoload.php";
     use Firebase\JWT\JWT;
     use Firebase\JWT\Key;
-    // use Firebase\JWT\ExpiredException;
-    $_POST = json_decode(file_get_contents('php://input'));
     $header = getallheaders();
-    $response;
     $jwtHeader = $header['authorization'];
     $jwt = trim(substr($jwtHeader,7));
     $jwtDetails = JWT::decode($jwt, new Key("4e3v2o1l", 'HS256'));
+
+    
+    $_POST = json_decode(file_get_contents('php://input'));
+    // $jwtDetails = $user->getJWTdetails();
+    $email = $jwtDetails->info->email;
     $category = $_POST->selected;
     $country = $_POST->country;
     $town = $_POST->town;
     $priceRange = $_POST->priceRange;
-    $image = $_POST->imageFile;
-    $email = $jwtDetails->info->email;
-    // echo $email;
+    $img = $_POST->imageFile;
     
-    $response = [];
+    $imageFile = $_FILES['img']['name'];
+    $image = time().$imageFile;
+    $addImage = move_uploaded_file($imageFile = $_FILES['img']['name'], 'upload/'.$image);
     $user = new Users();
+    
+    
+
+    
+    $response;
+    $response = [];
     $insertProfile = $user->musicianInsertProfile($category,$country,$town,$priceRange,$image,$email);
     
     // if(ExpiredException){
