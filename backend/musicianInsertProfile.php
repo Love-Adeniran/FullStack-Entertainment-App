@@ -9,14 +9,12 @@
     $jwtDetails = JWT::decode($jwt, new Key("4e3v2o1l", 'HS256'));
 
     //Because of the Form that was sent from the frontend, there is no need for json_decode
-    $email = $jwtDetails->info->email;
+    
     $category = $_POST['selected'];
     $country = $_POST["country"];
     $town = $_POST["town"];
-    $town = $_POST["town"];
-    $town = $_POST["town"];
-    $town = $_POST["town"];
     $priceRange = $_POST["priceRange"];
+    $email = $jwtDetails->info->email;
     
     $imageFile = $_FILES['imageFile']['name'];
     $image = time().$imageFile;
@@ -26,15 +24,11 @@
     // $response = [];
     
     if($addImage){
-        $insertProfile = $user->musicianInsertProfile($category,$country,$town,$priceRange,$image,$email);
+        $insertProfile = $user->musicianUpdateProfile($category,$country,$town,$priceRange,$image,$email);
         if($insertProfile){
             $response['success'] = true;
             $response['message'] = 'Profile Inserted!';
         } 
-        // else if($kulikuli) {
-        //     $response['message'] = 'Hello Love, stop coding and give kulikuli a chance';
-        //     $response['message'] = false && true;
-        // }
         else{
             $response['message'] = 'Unable to Update Profile!';
             $response['success'] = false;
@@ -46,6 +40,6 @@
     }
     
     echo json_encode($response);
-    // echo json_encode($header)
+
     ;
 ?>

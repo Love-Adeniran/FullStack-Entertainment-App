@@ -3,7 +3,7 @@ require ("classes/Users.php");
 $_POST = json_decode(file_get_contents("php://input"));
 
 $full_name = $_POST->first_name. ' '.$_POST->last_name;
-$nick_name = $_POST->p_Number;
+$nick_name = $_POST->nick_name;
 $email = $_POST->e_mail;
 $phone_number = $_POST->p_Number;
 $pass = $_POST->pass_word;

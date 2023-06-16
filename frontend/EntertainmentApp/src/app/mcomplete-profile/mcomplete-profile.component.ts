@@ -19,7 +19,7 @@ export class McompleteProfileComponent {
     thumbLabel = false;
     value = 5;
     isChecked = false;
-    public fullName = '';
+    public fullName:string = '';
     public nickName = '';
     public pNumber = '';
     public email = '';
@@ -36,12 +36,7 @@ export class McompleteProfileComponent {
     public musicianInfo = {};
 
     ngOnInit():void{
-        this.e_service.user.subscribe((data:any)=>{
-            this.fetchedprofile = data;
-            console.log(this.fetchedprofile)
-        })
-        this.emailControl = this.e_service.emailFormControl;
-        this.getErrMessage()
+        
     }
     getErrMessage() {
         this.emailErr=this.e_service.getErrorMessage()
@@ -55,10 +50,6 @@ export class McompleteProfileComponent {
     submit(){
         // let musicianInfo = {selected:this.selected,country:this.country,town:this.town,priceRange:this.priceRange,imageFile:this.image}
         let musicianInfo = new FormData();
-        musicianInfo.append("fullname", this.fetchedprofile.full_name)
-        musicianInfo.append("nickname", this.fetchedprofile.nick_name)
-        musicianInfo.append("phone_number", this.fetchedprofile.phone_number)
-        musicianInfo.append("email", this.fetchedprofile.email)
         musicianInfo.append("selected", this.selected)
         musicianInfo.append("country", this.country)
         musicianInfo.append("town", this.town)

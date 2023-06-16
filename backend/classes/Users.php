@@ -50,8 +50,8 @@ require_once("Config.php");
             return $this->read($query,$binder);
         }
 
-        public function musicianInsertProfile($category,$country,$town,$priceRange,$image,$email){
-            $query = "UPDATE `musician_tb` SET `category`= ?,`country`= ?,`town`= ?,`price_range`= ?, `image`= ? WHERE email= ?";
+        public function musicianUpdateProfile($category,$country,$town,$priceRange,$image,$email){
+            $query = "UPDATE `musician_tb` SET `full_name`,`nick_name`,`email`,`phone_number`,category`= ?,`country`= ?,`town`= ?,`price_range`= ?, `image`= ? WHERE email= ?";
             $binder = array('ssssss',$category,$country,$town,$priceRange,$image,$email);
             return $this->update($query,$binder);
         }
