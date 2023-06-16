@@ -31,6 +31,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
+import { SonglistComponent } from './songlist/songlist.component';
 
 
 
@@ -50,6 +51,7 @@ import { MatListModule } from '@angular/material/list';
     McompleteProfileComponent,
     TestComponent,
     NavBarComponent,
+    SonglistComponent,
     
     ],
     imports: [

@@ -10,9 +10,10 @@ import { GuestGuard } from './guards/guest.guard';
 import { MusicianGuard } from './guards/musician.guard';
 // import { TestComponent } from './test/test.component';
 // import { NavBarComponent } from './nav-bar/nav-bar.component';
-import { McompleteProfileComponent } from './mcomplete-profile/mcomplete-profile.component';
+// import { McompleteProfileComponent } from './mcomplete-profile/mcomplete-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DiscoverComponent } from './discover/discover.component';
+import { SonglistComponent } from './songlist/songlist.component';
 
 const routes: Routes = [
     {path:"", redirectTo:'home', pathMatch:'full'},
@@ -27,7 +28,7 @@ const routes: Routes = [
         {path:"", redirectTo:'profile', pathMatch:'full'},
         // {path:"profile", component:McompleteProfileComponent},
         {path:"profile", component:ProfileComponent},
-        {path:"songlist", component:MusicianDashboardComponent},
+        {path:"songlist", component:SonglistComponent},
         {path:"videos", component:MusicianDashboardComponent},
         {path:"about", component:MusicianDashboardComponent},
     ],canActivate:[MusicianGuard]},

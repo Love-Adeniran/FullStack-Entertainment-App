@@ -4,7 +4,7 @@
     </div> -->
     <div class=" p-0">
         <div class="container mx-auto mt-4 w-100">
-                <h3 class="text-warning">Hey Musician! Your Profile is 50% Complete...😊 Complete Your Profile!</h3>
+                <h3 class="text-warning" mat-dialog-title>Hey Musician! Your Profile is 50% Complete...😊 Complete Your Profile!</h3>
             <mat-slider  color="accent"
                     class="example-margin w-100 text-warning"
                     [disabled]="disabled"
@@ -18,7 +18,37 @@
         </div>
         
         <div class="border-start border-end border-warning container p-0">
-            <div class=" mt-4 p-0">
+            <mat-dialog-content class=" mt-4 p-0">
+                <div class="w-100 mx-auto px-4 " >
+                    <mat-form-field class="w-100" *ngIf="fetchedprofile">
+                        <mat-label>Full Name</mat-label>
+                        <input matInput placeholder="Full Name"   [(ngModel)]="fetchedprofile.full_name" #fname="ngModel" required minlength="2" maxlength="40" [class.is.valid]="fname.valid" [class.is.invalid]="fname.invalid" >
+                        <mat-error *ngIf="fname.invalid">{{ErrorMsg}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="w-100 mx-auto px-4 " >
+                    <mat-form-field class="w-100">
+                        <mat-label>Nick Name</mat-label>
+                        <input matInput placeholder="Nick Name" [(ngModel)]="fetchedprofile.nick_name" #fname="ngModel" required minlength="5" maxlength="100" [class.is.valid]="fname.valid" [class.is.invalid]="fname.invalid">
+                        <mat-error *ngIf="fname.invalid">{{ErrorMsg}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="w-100 px-4 mx-auto">
+                    <mat-form-field class="w-100">
+                        <mat-label>Phone Number</mat-label>
+                        <span matPrefix>+234 &nbsp;</span>
+                        <input matInput type="number" placeholder="Phone Number" [(ngModel)]="fetchedprofile.phone_number" #phone="ngModel" required minlength="10" maxlength="10" [class.is.valid]="phone.valid" [class.is.invalid]="phone.invalid">
+                        <mat-icon matSuffix class="text-warning">phone</mat-icon>
+                        <mat-error *ngIf="phone.invalid">{{ErrorMsg}}</mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="w-100 px-4 mx-auto">
+                <mat-form-field class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input matInput matNativeControl #Email="ngModel" [(ngModel)]="fetchedprofile.email"  placeholder="Ex. pat@example.com" minlength="7" required class="w-100">
+                    <mat-error *ngIf="emailControl.invalid">{{emailErr}}</mat-error>
+                </mat-form-field>
+            </div>
                 <div class=" px-4">
                     <mat-form-field class="w-100 mat-form-field " >
                         <mat-label color="accent">Select Category</mat-label>
@@ -28,9 +58,8 @@
                             <mat-option value="Band">Band</mat-option>
                             <mat-option value="DJ">DJ</mat-option>
                         </mat-select>
-                        <!-- <mat-error></mat-error> -->
+
                     </mat-form-field>
-                    <!-- <p>You selected: {{selected}}</p> -->
                 </div>
                 <div class="px-4">
                     <mat-form-field class="w-100" >
@@ -53,18 +82,22 @@
                 <div class="px-4 ">
                     <div class="w-100">
                         <mat-label class="text-warning">Upload photo</mat-label>
-                        <input type="file" value="image" class="w-100 btn btn-warning form-control" [(ngModel)]="image">
+                        <input type="file" class="w-100 btn btn-warning form-control"(change)="fileUpload($event)">
                     </div>
                 </div>
-                <div class=" px-4 my-2 ">
-                    <div class="w-100 d-flex flex-row-reverse me-4 px-4">
-                        <button mat-raised-button  class="text-warning" (click)="next()">
-                            <mat-icon class="text-warning">arrow_forward_ios</mat-icon>
-                            Next
-                        </button>
-                    </div>
+            </mat-dialog-content>
+            <mat-dialog-actions class=" px-4 my-2 ">
+                <div class="w-100 d-flex flex-row-reverse me-4 px-4">
+                    <button mat-raised-button class="text-warning" (click)="submit()">
+                        <mat-icon class="text-warning">arrow_forward_ios</mat-icon>
+                        Next
+                    </button>
+                    <button mat-raised-button mat-dialog-close class="text-warning">
+                        <mat-icon class="text-warning">close</mat-icon>
+                        Close
+                    </button>
                 </div>
-            </div>
+            </mat-dialog-actions>
         </div>
     </div>
 
