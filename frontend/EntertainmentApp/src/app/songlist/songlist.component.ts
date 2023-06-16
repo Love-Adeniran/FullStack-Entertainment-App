@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
 export class SonglistComponent {
 
     initial = false;
+    public audio:any;
+    // public Audio:any;
+    public audioTitle= '';
+    public audioType:any;
+    public audioName = '';
 
     open() {
         this.initial = true;
@@ -15,4 +20,19 @@ export class SonglistComponent {
     close(){
         this.initial = false;
     }
+    fileUpload(event:any) {
+        console.log(event.target.files[0]);
+        this.audio = event.target.files[0];
+        
+        }
+    
+    uploadAudio(){
+        if(this.audio==null){
+            console.log("No file selected");
+        }else{
+            
+        }
+        
+    }
+
 }

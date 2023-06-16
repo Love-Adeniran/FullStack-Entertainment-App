@@ -43,7 +43,10 @@ export class EntertainmentServiceService {
         return this.httpClient.post<object>(`${this.baseUrl}/musicianLogin.php`,userObj)
     }
     MusicianInsertInfo(userObj:object){
-        return this.httpClient.post<object>(`${this.baseUrl}/musicianInsertProfile.php`,userObj)
+        return this.httpClient.post<object>(`${this.baseUrl}/musicianUpdateProfile.php`,userObj)
+    }
+    MusicianEditProfile(userObj:object){
+        return this.httpClient.post<object>(`${this.baseUrl}/musicianEditProfile.php`,userObj)
     }
     MusicianGetInfo(){
         return this.httpClient.get<object>(`${this.baseUrl}/musicianGetProfile.php`)

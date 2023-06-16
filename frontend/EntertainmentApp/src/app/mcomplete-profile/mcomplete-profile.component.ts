@@ -18,15 +18,10 @@ export class McompleteProfileComponent {
     step = 1;
     thumbLabel = false;
     value = 5;
+    initial = false;
     isChecked = false;
-    public fullName:string = '';
-    public nickName = '';
-    public pNumber = '';
-    public email = '';
 
-    public ErrorMsg = '';
-    public emailControl:any;
-    public emailErr = '';
+    
     public fetchedprofile:any;
     public profile = false;
     public country = ''
@@ -38,9 +33,7 @@ export class McompleteProfileComponent {
     ngOnInit():void{
         
     }
-    getErrMessage() {
-        this.emailErr=this.e_service.getErrorMessage()
-    }
+    
 
     fileUpload(event:any){
         // console.log(event)

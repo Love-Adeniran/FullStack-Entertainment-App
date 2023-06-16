@@ -1,13 +1,30 @@
-<div *ngIf="initial==true">
-    <input type="file">
-</div>
+
 
 <div class="songlist text-center">
-    <p>songlist works!</p>
-    <div>
-        <button mat-raised-button class="text-warning">
+    <div class="mx-auto">
+        <p>songlist works!</p>
+        <div *ngIf="initial==true" class="border p-2 mx-auto">
+            <div class="px-4">
+                <mat-form-field>
+                    <mat-label>Title</mat-label>
+                    <input type="text"  mat-input class="" placeholder="audioTitle"  [(ngModel)]="audioTitle">
+                </mat-form-field>
+            </div>
+            <div class="px-4">
+                <input type="file" accept="audio/*" mat-input class=" form-control" (change)="fileUpload($event)" [(ngModel)]="audio">
+            </div>
+            <div class="">
+                <button mat-raised-button class="text-warning" (click)="uploadAudio()">
+                    <mat-icon>upload</mat-icon>
+                    Upload Audio
+                </button>
+            </div>
+        </div>
+    </div>
+    <div >
+        <button mat-raised-button class="text-warning" (click)="open()">
             <mat-icon>upload</mat-icon>
-            Upload Audio
+            Upload Song
         </button>
     </div>
 </div>
