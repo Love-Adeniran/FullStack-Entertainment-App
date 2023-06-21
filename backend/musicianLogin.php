@@ -1,4 +1,5 @@
 <?php
+session_start();
 require "classes/Users.php";
 require "vendor/autoload.php";
 $_POST = json_decode(file_get_contents('php://input'));
@@ -16,6 +17,8 @@ $response;
 // $response = $musicianLogin;
 if($musicianLogin){
     $fetchedpassword = $musicianLogin[0]["password"];
+    $_SESSION['musician_id'] = $musicianLogin[0]["musician_id"];
+    // echo($_SESSION['musician_id']);
     $verifyPassword = password_verify($pass,$fetchedpassword);
     if($verifyPassword){
         $response['success']= true;
@@ -23,7 +26,7 @@ if($musicianLogin){
             "iss"=> "localhost:4200",
             "iat"=> time(),
             "nbf"=> time(),
-            "exp"=> time()+10000000000,
+            "exp"=> time()+10000000000000000000000000000000000000000,
             "info"=>[
                 "email"=>$email
             ]

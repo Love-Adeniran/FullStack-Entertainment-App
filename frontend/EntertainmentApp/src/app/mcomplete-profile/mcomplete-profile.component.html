@@ -22,9 +22,9 @@
                     <mat-form-field color="accent" class="w-100 mat-form-field " >
                         <mat-label color="accent">Select Category</mat-label>
                         <mat-select [(value)]="selected" color="accent"  class="" required [(ngModel)]="selected">
-                            <mat-option value="Artist">Artist</mat-option>
-                            <mat-option value="Band">Band</mat-option>
-                            <mat-option value="DJ">DJ</mat-option>
+                            <mat-option value="Artist" class="">Artist</mat-option>
+                            <mat-option value="Band" class="">Band</mat-option>
+                            <mat-option value="DJ" class="">DJ</mat-option>
                         </mat-select>
 
                     </mat-form-field>
@@ -46,6 +46,8 @@
                         <mat-label color="accent">Price Range</mat-label>
                         <input type="text" matInput value="priceRange" 
                         [(ngModel)]="priceRange">
+                        <span matTextPrefix>$&nbsp;</span>
+                        <span matTextSuffix>.00</span>
                     </mat-form-field>
                 </div>
                 <div class="px-4 ">

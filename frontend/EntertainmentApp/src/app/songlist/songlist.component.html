@@ -1,30 +1,48 @@
 
-
-<div class="songlist text-center">
-    <div class="mx-auto">
-        <p>songlist works!</p>
-        <div *ngIf="initial==true" class="border p-2 mx-auto">
-            <div class="px-4">
-                <mat-form-field>
-                    <mat-label>Title</mat-label>
-                    <input type="text"  mat-input class="" placeholder="audioTitle"  [(ngModel)]="audioTitle">
-                </mat-form-field>
-            </div>
-            <div class="px-4">
-                <input type="file" accept="audio/*" mat-input class=" form-control" (change)="fileUpload($event)" [(ngModel)]="audio">
-            </div>
-            <div class="">
-                <button mat-raised-button class="text-warning" (click)="uploadAudio()">
-                    <mat-icon>upload</mat-icon>
-                    Upload Audio
-                </button>
+<div>
+    <div class="songlist text-center">
+        <div class="mx-auto">
+            <!-- <p>songlist works!</p> -->
+            <div *ngIf="initial==true" class="border p-2 mx-auto">
+                <div>
+                    <mat-form-field class="example-form-field " color="accent">
+                        <mat-label class="text-primary">Enter Audio Title </mat-label>
+                        <input class="form-control border-warning"  [(ngModel)]="audioTitle"  type="text" matInput>
+                    </mat-form-field>
+                    <div class="example-form-field" color="accent">
+                        <mat-label color="accent">Choose an Audio file</mat-label>
+                            <input class="form-control  text-warning"  type="file" accept="audio/*"  (change)="fileUpload($event)">
+                    </div>
+                </div>
+                <div class="">
+                    <button mat-raised-button class="text-warning" (click)="uploadAudio()">                       
+                        <mat-icon>upload</mat-icon>
+                        Upload 
+                    </button>
+                </div>
             </div>
         </div>
+        <div >
+            <button mat-raised-button class="text-warning" (click)="open()">
+                <mat-icon>music_note</mat-icon>
+                Add Audio
+            </button>
+        </div>
     </div>
-    <div >
-        <button mat-raised-button class="text-warning" (click)="open()">
-            <mat-icon>upload</mat-icon>
-            Upload Song
-        </button>
+    <div class="shadow mx-4 p-2 py-4 row">
+        <div class=" col-md-5 m-3 col-sm-12 shadow mx-4 p-4 rounded-pill" *ngFor="let item of songList">
+            <div class="col-8">
+                <audio [src]="songPath+item.audio" class="col-12 p-2 bg-warning shadow"  type="audio/*" controls></audio>
+                <p class="text-warning text-center">Audio Title:{{item.audio_title}}</p>
+            </div>
+            <div class="col-2">
+                <button mat-raised-button class="text-warning" (click)="deleteAudio(item.id)">
+                    <mat-icon>delete</mat-icon>
+                    Delete
+                </button>
+            </div>
+                <!-- <audio src=""></audio> -->
+        
+        </div>
     </div>
 </div>

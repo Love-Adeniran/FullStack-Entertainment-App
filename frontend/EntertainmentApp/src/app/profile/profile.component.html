@@ -83,9 +83,8 @@
                 <p><b>Email</b> : {{user.email}}</p>
                 <p><b>Phone Number</b> : {{user.phone_number}}</p>
                 <p *ngIf="user"><b>Country</b> : {{user.country}}</p>
-                
             </mat-card-content>
-            <mat-card-actions class="mx-auto">
+            <mat-card-actions class="px-0 mx-auto">
                 <button mat-raised-button class="text-warning" (click)="openDialog('300ms', '150ms')">
                     <mat-icon class="text-warning">edit</mat-icon>
                     Complete Profile

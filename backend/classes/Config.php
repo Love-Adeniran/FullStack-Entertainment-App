@@ -58,7 +58,18 @@
             }
             
         }
-        public function delete(){}
+        public function delete(){
+            $statement = $this->connection->prepare($query);
+            if($binder){
+                $statement->bind_param(...$binder);
+            }
+            if($statement->execute()){
+                $this->response['success'] = true;
+                return $this->response;
+            }else {
+                return false;
+            }
+        }
     }
 
 

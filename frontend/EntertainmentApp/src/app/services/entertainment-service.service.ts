@@ -1,8 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormControl,Validators } from '@angular/forms';
 import { environment } from '../environment/environment';
 import { BehaviorSubject } from 'rxjs';
+// import { gzip } from 'pako'
 
 @Injectable({
     providedIn: 'root'
@@ -10,6 +11,9 @@ import { BehaviorSubject } from 'rxjs';
 export class EntertainmentServiceService {
     constructor(public httpClient: HttpClient) { }
     public  emailFormControl = new FormControl('', [Validators.required, Validators.email]);
+    private headers = new HttpHeaders()
+        .set('Content-Encoding', 'gzip')
+        .set('Content-Type', 'application/json');
     public user = new BehaviorSubject({})
     public baseUrl = environment.baseUrl;
 
@@ -50,5 +54,14 @@ export class EntertainmentServiceService {
     }
     MusicianGetInfo(){
         return this.httpClient.get<object>(`${this.baseUrl}/musicianGetProfile.php`)
+    }
+    MusicianUploadAudio(audioObj:any){
+        return this.httpClient.post<object>(`${this.baseUrl}/audioUpload.php`, audioObj)  
+    }
+    MusicianGetAudio(id:object){
+        return this.httpClient.post<object>(`${this.baseUrl}/getAudio.php`, id)
+    }
+    MusicianDeleteAudio(id:object){
+        return this.httpClient.post<object>(`${this.baseUrl}/deleteAudio.php`, id)
     }
 }
