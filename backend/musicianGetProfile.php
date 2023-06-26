@@ -11,7 +11,7 @@ use Firebase\JWT\Key;
 $user = new Users(); 
 
 $email = $jwtDetails->info->email;
-$response;
+$response=[];
 $getprofile = $user->getUserMusician($email);
 if($getprofile){
     $response['success']= true;

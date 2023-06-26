@@ -36,12 +36,21 @@ require_once("Config.php");
         // }
         // All guest ends here
         
+        public function musicianChangePassword($password,$id){
+            $query = "UPDATE musician_tb SET `password`=? WHERE `musician_id`=?";
+            $binder = array('ss',$password,$id);
+            return $this->update($query,$binder);
+        }
         public function createUserMusician($full_name,$nick_name, $email, $phone_number, $password){
             $query = "INSERT INTO musician_tb (`full_name`,`nick_name`,`email`,`phone_number`,`password`) VALUES (?,?,?,?,?)";
             $binder = array("sssss",$full_name,$nick_name, $email, $phone_number, $password);
             return $this->create($query, $binder);
         }
-        
+        public function getAllMusician(){
+            $query = "SELECT * FROM musician_tb ";
+            $binder = array();
+            return $this->read($query,$binder);
+        }
         
         public function getUserMusician($email){
             $query = "SELECT * FROM musician_tb WHERE email=? ";
@@ -50,26 +59,26 @@ require_once("Config.php");
         }
 
         public function musicianUpdateProfile($category,$country,$town,$priceRange,$image,$email){
-            $query = "UPDATE `musician_tb` SET `full_name`,`nick_name`,`email`,`phone_number`,category`= ?,`country`= ?,`town`= ?,`price_range`= ?, `image`= ? WHERE email= ?";
+            $query = "UPDATE `musician_tb` SET `category`= ?,`country`= ?,`town`= ?,`price_range`= ?, `image`= ? WHERE email= ?";
             $binder = array('ssssss',$category,$country,$town,$priceRange,$image,$email);
             return $this->update($query,$binder);
         }
 
-        public function uploadAudio($title,$audioName,$fetchmusicianId){
-            $query = "INSERT INTO audio_tb (`audio_title`,`audio`,`musician_id`) VALUES (?,?,?)";
-            $binder = array('sss', $title,$audioName,$fetchmusicianId);
-            return $this->create($query,$binder);
+        public function uploadAudio($title,$name,$audioName,$fetchmusicianId){
+            $query = "INSERT INTO audio_tb (`audio_title`, `audio_name`,`audio`,`musician_id`) VALUES (?,?,?,?)";
+            $binder = array('ssss', $title,$name,$audioName,$fetchmusicianId);
+            return $this->create($query, $binder);
         }
 
         public function getAudio($user_id){
-            $query = "SELECT * FROM audio_tb WHERE musician_id = ?";
+            $query = "SELECT * FROM `audio_tb` WHERE `musician_id` = ?";
             $binder = array('s', $user_id);
-            return $this->read($query,$binder);
+            return $this->read($query, $binder);
         }
-        public function deleteAudio(){
-            $query = "DELETE FROM audio_tb WHERE `audio_id`= ?";
-            $binder = array(s, );
-            return $this->delete($query,$binder);
+        public function deleteAudio($user_id){
+            $query = "DELETE FROM `audio_tb` WHERE `audio_id`= ?";
+            $binder = array('s', $user_id);
+            return $this->delete($query, $binder);
         }
     }
 

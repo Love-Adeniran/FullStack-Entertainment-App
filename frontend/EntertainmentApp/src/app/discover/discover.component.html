@@ -1,6 +1,11 @@
 <!-- <p>discover works!</p> -->
 <mat-tab-group>
-    <mat-tab label="All" class="border"> <h3>All</h3> <p *ngIf="Info">{{Info.full_name}}</p>
+    <mat-tab label="All" class="border"> <h3>All</h3> 
+        <div *ngIf="Info">
+            <div *ngFor="let item of Info" class="example-header-image mx-auto profileImage"  >
+                <img mat-card-image width="100%"  height="100%"  [src]="ImagePath+item.image" alt="profile-pic">
+            </div>
+        </div>
     </mat-tab>
     <mat-tab label="music artist"> Music Artist </mat-tab>
     <mat-tab label="Bands"> Bands </mat-tab>

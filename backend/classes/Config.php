@@ -23,7 +23,9 @@
         }
         public function create($query, $binder){
             $statement = $this->connection->prepare($query);
-            $statement->bind_param(...$binder);
+            if($binder){
+                $statement->bind_param(...$binder);
+            }
             if($statement->execute()){
                 $this->response['success'] = true;
                 return $this->response;
@@ -58,14 +60,11 @@
             }
             
         }
-        public function delete(){
+        public function delete($query, $binder){
             $statement = $this->connection->prepare($query);
-            if($binder){
-                $statement->bind_param(...$binder);
-            }
+            $statement->bind_param(...$binder);
             if($statement->execute()){
-                $this->response['success'] = true;
-                return $this->response;
+                return true;
             }else {
                 return false;
             }

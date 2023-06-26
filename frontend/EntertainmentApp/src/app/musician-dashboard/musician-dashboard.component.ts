@@ -25,19 +25,19 @@ export class MusicianDashboardComponent {
     public username:string='';
     ngOnInit():void{
         this.e_service.user.subscribe((data:any)=>{
-            console.log(data);
+            // console.log(data);
             this.username = data;
         })
     }
 
     getcomponent(num:number){
-        console.log(num);
+        // console.log(num);
         this.eachcomponent= this.components[num].component
-        console.log(this.eachcomponent);
+        // console.log(this.eachcomponent);
         
         
         this.e_service.user.subscribe((data:any)=>{
-            console.log(data);
+            // console.log(data);
             
         })
     }

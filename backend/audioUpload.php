@@ -15,6 +15,7 @@
     $email = $jwtDetails->info->email;
     $fetchmusicianInfo = $user->getUserMusician($email);
     $title = $_POST['title'];
+    $name = $_POST['name'];
     // echo json_encode($fetchmusicianInfo);
     $audio = $_FILES['audio']['name'];
     $audioName = time().$audio;
@@ -25,7 +26,7 @@
     if($addAudio){
         if($fetchmusicianInfo){
             $fetchmusicianId = $fetchmusicianInfo[0]['musician_id'];
-            $uploadAudio = $user->uploadAudio($title,$audioName,$fetchmusicianId);
+            $uploadAudio = $user->uploadAudio($title,$name,$audioName,$fetchmusicianId);
             if($uploadAudio){
                 $response = $uploadAudio;
                 $response['success'] = true;

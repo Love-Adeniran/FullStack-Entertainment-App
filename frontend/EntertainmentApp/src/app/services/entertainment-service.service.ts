@@ -52,14 +52,17 @@ export class EntertainmentServiceService {
     MusicianEditProfile(userObj:object){
         return this.httpClient.post<object>(`${this.baseUrl}/musicianEditProfile.php`,userObj)
     }
+    MusicianchangePassword(pass:object){
+        return this.httpClient.post<object>(`${this.baseUrl}/changePassword.php`, pass)
+    }
     MusicianGetInfo(){
-        return this.httpClient.get<object>(`${this.baseUrl}/musicianGetProfile.php`)
+        return this.httpClient.get<object>(`${this.baseUrl}/getUsers.php`)
     }
     MusicianUploadAudio(audioObj:any){
         return this.httpClient.post<object>(`${this.baseUrl}/audioUpload.php`, audioObj)  
     }
-    MusicianGetAudio(id:object){
-        return this.httpClient.post<object>(`${this.baseUrl}/getAudio.php`, id)
+    MusicianGetAudio(User_id:object){
+        return this.httpClient.post<object>(`${this.baseUrl}/getAudio.php`, User_id)
     }
     MusicianDeleteAudio(id:object){
         return this.httpClient.post<object>(`${this.baseUrl}/deleteAudio.php`, id)

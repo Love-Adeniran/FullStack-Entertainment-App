@@ -29,7 +29,7 @@ export class ProfileComponent {
     public pasWord = '';
     public confirmPasWord = '';
     public user:any;
-    public password:any;
+    // public password:any;
 
 
     ngOnInit(): void {
@@ -37,7 +37,7 @@ export class ProfileComponent {
         this.e_service.MusicianGetInfo().subscribe((data:any)=>{
             this.e_service.user.next(data[0]);
             this.user = data[0];
-            console.log(this.user);
+            // console.log(this.user);
             this.progressBar = false; 
         })
     }
@@ -56,17 +56,19 @@ export class ProfileComponent {
         this.initial = false;
     }
     DialogChangePassword(){
+        // console.log(this.user.email);
         this.initial = true;
     }
 
     changePassword(){
         if(this.pasWord == this.confirmPasWord){
-            this.password = this.pasWord;
+
+            let password = {pass:this.pasWord, id : this.user.musician_id}
             alert("Password changed successfully");
-            // this.e_service.MusicianChangePassword(this.password).subscribe((data:string)=>{
-            //     console.log(data);
-            //     this.initial = false;
-            // })
+            this.e_service.MusicianchangePassword(password).subscribe((data)=>{
+                // console.log(data);
+                this.initial = false;
+            })
         }
         else{
             alert("Password does not match");

@@ -23,7 +23,7 @@
                         </button>
                     </mat-form-field>
                 </div>
-                <div class="border-top border-warning w-50 mx-auto">
+                <div class="border-top border-warning text-center mx-auto">
                     <button mat-button (click)="cancel()" class="text-warning">
                         <mat-icon class="text-warning">cancel</mat-icon>
                         Cancel</button>
@@ -33,45 +33,10 @@
                     </button>
                 </div>
             </div>
-            <!-- <div class="" *ngIf="dialogOpen==true">
-                    <div class=" p-4 w-75 mx-auto mt-4  ">
-                        <h3  class="text-warning text-center">Edit Profile</h3>
-                        <p class="text-center text-danger">{{generalErrorMsg}}</p>
-                        <div class="p-4">
-                                <mat-form-field class="w-100">
-                                    <mat-label>First Name</mat-label>
-                                    <input matInput placeholder="First Name" [(ngModel)]="fullName" #fname="ngModel" required class="w-100" minlength="2" maxlength="40" [class.is.valid]="fname.valid" [class.is.invalid]="fname.invalid">
-                                    <mat-error *ngIf="fname.invalid">{{ErrorMsg}}</mat-error>
-                                </mat-form-field>
-
-                                <mat-form-field class="w-100">
-                                    <mat-label>Nick Name</mat-label>
-                                    <input matInput placeholder="Nick Name" [(ngModel)]="nickName" #fname="ngModel" required class="w-100" minlength="5" maxlength="100" [class.is.valid]="fname.valid" [class.is.invalid]="fname.invalid">
-                                    <mat-error *ngIf="fname.invalid">{{ErrorMsg}}</mat-error>
-                                </mat-form-field>
-    
-                                <mat-form-field class="w-100">
-                                    <mat-label>Phone Number</mat-label>
-                                    <span matPrefix>+234 &nbsp;</span>
-                                    <input matInput type="number" class="w-100" placeholder="Phone Number" [(ngModel)]="pNumber" #phone="ngModel" required minlength="10" maxlength="10" [class.is.valid]="phone.valid" [class.is.invalid]="phone.invalid">
-                                    <mat-icon matSuffix class="text-warning">phone</mat-icon>
-                                    <mat-error *ngIf="phone.invalid">{{ErrorMsg}}</mat-error>
-                                </mat-form-field>
-                                <mat-form-field class="w-100">
-                                    <mat-label>Email</mat-label>
-                                    <input matInput matNativeControl #Email="ngModel" [(ngModel)]="email"  placeholder="Ex. pat@example.com" minlength="7" required class="w-100">
-                                    <mat-error *ngIf="emailControl.invalid">{{emailErr}}</mat-error>
-                                </mat-form-field>
-
-                            <div>
-                                <button mat-raised-button (click)="saveEditedProfile()"><mat-icon>save</mat-icon>Save</button>
-                                <button mat-flat-button><mat-icon>cancel</mat-icon> Cancel</button>
-                            </div>
-                            </div>
-                        </div>
-                    </div> -->
+            
             <div  class="example-header-image mx-auto profileImage"  *ngIf="user">
                 <img mat-card-image width="100%"  height="100%"  [src]="imagePath+user.image" alt="profile-pic">
+                <button class="text-warning"><mat-icon color="accent">edit</mat-icon> change Profile Picture</button>
             </div>
             <mat-card-header *ngIf="user" class="mx-auto text-center">
                 <mat-card-title ><p>{{user.full_name}}</p></mat-card-title>

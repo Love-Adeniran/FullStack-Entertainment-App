@@ -1,13 +1,13 @@
 
 <div>
-    <div class="songlist text-center">
-        <div class="mx-auto">
+    <div class=" text-center">
+        <div class="mx-auto songlist" *ngIf="initial==true">
             <!-- <p>songlist works!</p> -->
-            <div *ngIf="initial==true" class="border p-2 mx-auto">
+            <div  class=" p-2 mx-auto">
                 <div>
                     <mat-form-field class="example-form-field " color="accent">
                         <mat-label class="text-primary">Enter Audio Title </mat-label>
-                        <input class="form-control border-warning"  [(ngModel)]="audioTitle"  type="text" matInput>
+                        <input class="form-control border-warning text-center"  [(ngModel)]="audioTitle"  type="text" matInput>
                     </mat-form-field>
                     <div class="example-form-field" color="accent">
                         <mat-label color="accent">Choose an Audio file</mat-label>
@@ -23,26 +23,27 @@
             </div>
         </div>
         <div >
-            <button mat-raised-button class="text-warning" (click)="open()">
-                <mat-icon>music_note</mat-icon>
-                Add Audio
+            <button mat-icon-button class="text-warning" (click)="open()">
+                <mat-icon>add</mat-icon>
             </button>
         </div>
     </div>
-    <div class="shadow mx-4 p-2 py-4 row">
-        <div class=" col-md-5 m-3 col-sm-12 shadow mx-4 p-4 rounded-pill" *ngFor="let item of songList">
-            <div class="col-8">
-                <audio [src]="songPath+item.audio" class="col-12 p-2 bg-warning shadow"  type="audio/*" controls></audio>
+    <div class="shadow mx-4 p-2 py-4 row" *ngIf="songList.length !=0">
+        <div class=" col-md-3 my-3 col-sm-5 shadow mx-4 p-4 rounded" *ngFor="let item of songList">
+            <div class="">
                 <p class="text-warning text-center">Audio Title:{{item.audio_title}}</p>
+                <p class="text-warning text-center">Audio Name:{{item.audio_name}}</p>
+                <audio [src]="songPath+item.audio" class="col-12 p-2 bg-warning shadow"  type="audio/*" controls>
+                    <button mat-icon-button><mat-icon>music_library</mat-icon></button>
+                </audio>
+                <div class="">
+                    <button mat-icon-button class="text-warning border position  border-warning" (click)="deleteAudio(item.audio_id)"><mat-icon>delete</mat-icon>
+                    </button>
+                </div>
             </div>
-            <div class="col-2">
-                <button mat-raised-button class="text-warning" (click)="deleteAudio(item.id)">
-                    <mat-icon>delete</mat-icon>
-                    Delete
-                </button>
-            </div>
-                <!-- <audio src=""></audio> -->
-        
         </div>
+    </div>
+    <div *ngIf="songList.length == 0" class="errorMsg py-5">
+        <p class=" text-center">{{message1}}</p>
     </div>
 </div>
