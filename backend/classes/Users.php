@@ -36,11 +36,6 @@ require_once("Config.php");
         // }
         // All guest ends here
         
-        public function musicianChangePassword($password,$id){
-            $query = "UPDATE musician_tb SET `password`=? WHERE `musician_id`=?";
-            $binder = array('ss',$password,$id);
-            return $this->update($query,$binder);
-        }
         public function createUserMusician($full_name,$nick_name, $email, $phone_number, $password){
             $query = "INSERT INTO musician_tb (`full_name`,`nick_name`,`email`,`phone_number`,`password`) VALUES (?,?,?,?,?)";
             $binder = array("sssss",$full_name,$nick_name, $email, $phone_number, $password);
@@ -56,6 +51,16 @@ require_once("Config.php");
             $query = "SELECT * FROM musician_tb WHERE email=? ";
             $binder = array("s",$email);
             return $this->read($query,$binder);
+        }
+        public function musicianChangePassword($password,$id){
+            $query = "UPDATE musician_tb SET `password`=? WHERE `musician_id`=?";
+            $binder = array('ss',$password,$id);
+            return $this->update($query,$binder);
+        }
+        public function musicianChangepicture($image,$email){
+            $query = "UPDATE musician_tb SET `image`= ? WHERE `email`= ?";
+            $binder = array('ss',$image,$email);
+            return $this->update($query, $binder);
         }
 
         public function musicianUpdateProfile($category,$country,$town,$priceRange,$image,$email){

@@ -15,6 +15,7 @@ export class ProfileComponent {
     hide = true;
     ErrorMsg ='';
     generalErrorMsg = '';
+    changePic = false;
 
     public fullName = '';
     public  nickName = '';
@@ -55,11 +56,11 @@ export class ProfileComponent {
     cancel(){
         this.initial = false;
     }
+
     DialogChangePassword(){
         // console.log(this.user.email);
         this.initial = true;
     }
-
     changePassword(){
         if(this.pasWord == this.confirmPasWord){
 
@@ -74,6 +75,28 @@ export class ProfileComponent {
             alert("Password does not match");
         }
     }
+    changePicture(){
+        this.changePic = true;
+    }
+    fileUpload(event:any){
+        let file = event.target.files[0];
+        let email = this.user.email;
+        let formData = new FormData();
+        formData.append('file', file);
+        formData.append('email', email);
+        this.e_service.MusicianUploadImage(formData).subscribe((data:any)=>{
+            if(data.success == true){
+                console.log(data);
+                this.ngOnInit();
+                this.changePic = true;
+            }else{
+                console.log(data.message);
+                
+            }
+        })
+    }
+
+
     showProfile(){
         this.dialogOpen = true;
     }

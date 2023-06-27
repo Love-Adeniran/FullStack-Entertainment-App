@@ -55,6 +55,9 @@ export class EntertainmentServiceService {
     MusicianchangePassword(pass:object){
         return this.httpClient.post<object>(`${this.baseUrl}/changePassword.php`, pass)
     }
+    MusicianUploadImage(imageObj:any){
+        return this.httpClient.post<object>(`${this.baseUrl}/imageUpload.php`, imageObj)  
+    }
     MusicianGetInfo(){
         return this.httpClient.get<object>(`${this.baseUrl}/getUsers.php`)
     }

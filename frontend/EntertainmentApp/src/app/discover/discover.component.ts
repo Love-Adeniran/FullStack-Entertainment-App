@@ -11,6 +11,7 @@ export class DiscoverComponent {
     constructor(public e_service : EntertainmentServiceService){}
     public ImagePath = environment.fileUrl;
     public Info:any;
+    public artists=[];
     ngOnInit():void{
         this.e_service.MusicianGetInfo().subscribe((data:any)=>{
             console.log(data);

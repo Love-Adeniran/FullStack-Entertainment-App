@@ -26,7 +26,6 @@ constructor(public router: Router, public e_Service:EntertainmentServiceService,
 
     ngOnInit():void {
         this.emailControl = this.e_Service.emailFormControl;
-        console.log(this.email,this.pasWord);
         this.getErrMessage();
     }
 
@@ -46,19 +45,15 @@ constructor(public router: Router, public e_Service:EntertainmentServiceService,
         else{
             if(this.isChecked == false){
                 this.Users = {email:this.email,password:this.pasWord}
-                console.log(this.Users);
                 this.e_Service.GuestLogin(this.Users).subscribe((data:any)=>{
-                console.log(data);
                 this.Response = data.success;
                 if(this.Response==true){
-                    // console.log(data.success);
                     localStorage['users_jwt'] = data.jwt;
                     this.message = 'Signed In Successfully';
                     this.duration = this.duration*1000;
                     this.openSnackBar(this.message, this.action);
                     this.router.navigate(['/guestdashboard']);
                 }else{
-                    // console.log(data.success);
                     this.ResponseErrorMsg = data.message;
                     this.ErrorMsg = 'Incorrect Email or Password!'
                     this.message = 'Unable to Sign In!';
@@ -69,9 +64,7 @@ constructor(public router: Router, public e_Service:EntertainmentServiceService,
                 })
             }else{
                 this.Users = {email:this.email,password:this.pasWord}
-                console.log(this.Users);
                 this.e_Service.MusicianLogin(this.Users).subscribe((data:any)=>{
-                    console.log(data);
                     
                 this.Response = data.success;
                 if(this.Response==true){
