@@ -32,6 +32,10 @@ export class ProfileComponent {
     public user:any;
     // public password:any;
 
+    public edit = false;
+    public country = '';
+    // public n_name = '';
+
 
     ngOnInit(): void {
         this.progressBar = true;
@@ -55,6 +59,7 @@ export class ProfileComponent {
     }
     cancel(){
         this.initial = false;
+        this.edit = false;
     }
 
     DialogChangePassword(){
@@ -98,30 +103,30 @@ export class ProfileComponent {
 
 
     showProfile(){
-        this.dialogOpen = true;
+        // this.dialogOpen = true;
+        this.edit =true;
     }
     saveEditedProfile(){
         this.emailControl = this.e_service.emailFormControl;
         this.getErrMessage()
-        if(this.fullName==''|| this.pNumber=='' || this.email==''){
+        if(this.nickName==''|| this.pNumber=='' || this.country==''){
             this.generalErrorMsg = 'There is an Empty field, Kindly fill!'
         }
         else{
-            let eachDetails = {full_name: this.fullName, nick_name:this.nickName,  e_mail: this.email, p_Number: this.pNumber};
-        //     this.e_service.MusicianEditProfile(eachDetails).subscribe(data=>{
-        //         console.log(data);
-        //         if(data.success == true){
-        //             this.dialogOpen = false;
-        //             console.log(data);
-        //             this.ngOnInit();
-        //         }else{
-        //             console.log(data.success);
-        //         }
-        //     })
-        // }
+            let eachDetails = { nick_name:this.nickName, p_Number: this.pNumber,musician_id:this.user.musician_id, country:this.country};
+            this.e_service.MusicianEditProfile(eachDetails).subscribe((data:any)=>{
+                console.log(data);
+                if(data.success == true){
+                    this.edit= false;
+                    this.ngOnInit();
+                }else{
+                    console.log(data.success);
+                }
+            })
+        }
     }
     
-    }
 }
+
     
 // Compare this snippet from frontend\EntertainmentApp\src\app\services\entertainment-service.service.ts:

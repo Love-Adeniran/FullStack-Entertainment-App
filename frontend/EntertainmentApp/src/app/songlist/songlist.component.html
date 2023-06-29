@@ -28,20 +28,38 @@
             </button>
         </div>
     </div>
-    <div class="shadow mx-4 p-2 py-4 row" *ngIf="songList.length !=0">
-        <div class=" col-md-3 my-3 col-sm-5 shadow mx-4 p-4 rounded" *ngFor="let item of songList">
-            <div class="">
-                <p class="text-warning text-center">Audio Title:{{item.audio_title}}</p>
-                <p class="text-warning text-center">Audio Name:{{item.audio_name}}</p>
-                <audio [src]="songPath+item.audio" class="col-12 p-2 bg-warning shadow"  type="audio/*" controls>
-                    <button mat-icon-button><mat-icon>music_library</mat-icon></button>
-                </audio>
-                <div class="">
-                    <button mat-icon-button class="text-warning border position  border-warning" (click)="deleteAudio(item.audio_id)"><mat-icon>delete</mat-icon>
-                    </button>
-                </div>
-            </div>
-        </div>
+    <div class="shadow mx-4 p-2 py-4 " *ngIf="songList.length !=0">
+        <table class="col-12 border" *ngFor="let item of songList">
+            <!-- <div class=" my-3  shadow mx-4 p-4 rounded" > -->
+                <!-- <div class=""> -->
+                    <tr class="border col-12 px-2">
+                        <td class="px-2">
+                            <audio [src]="songPath+item.audio" class=" p-2"  type="audio/*" controls>
+                                <button mat-icon-button>
+                                    <mat-icon>music_library</mat-icon>
+                                </button>
+                            </audio>
+                        </td>
+                        <!-- <td class="px-2">
+                            <button mat-icon-button>
+                                <mat-icon color="accent">play_arrow</mat-icon>
+                            </button>
+                        </td> -->
+                        <td class="px-2">
+                            <p class="text-warning text-center">Audio Title:{{item.audio_title}}</p>
+                        </td>
+                        <td class="px-2">
+                            <p class="text-warning text-center">Audio Name:{{item.audio_name}}</p>
+                        </td>
+                        <td class="px-2">
+                            <button mat-icon-button class="text-warning  border-warning" (click)="deleteAudio(item.audio_id)"><mat-icon>delete</mat-icon>
+                            </button>
+                        </td>
+                    </tr>
+                <!-- </div> -->
+
+            <!-- </div> -->
+        </table>
     </div>
     <div *ngIf="songList.length == 0" class="errorMsg py-5">
         <p class=" text-center">{{message1}}</p>

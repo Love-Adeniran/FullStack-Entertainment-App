@@ -82,13 +82,13 @@ constructor(public e_service : EntertainmentServiceService, public router: Route
             Audio.append('title', this.audioTitle)
             Audio.append('type', this.audioType)
             Audio.append('name', this.audioName);
+            Audio.append('id', this.musician_id);
             Audio.append('audio', this.audio);
             this.e_service.MusicianUploadAudio(Audio).subscribe((data:any)=>{
-                // console.log(data[0]);
                 if(data.success==true){
                     console.log('Audio Uploaded Successfully!');
-                    this.initial = false;
                     this.ngOnInit();
+                    this.initial = false;
                 }
                 else{
                     console.log('Audio Upload Failed!');

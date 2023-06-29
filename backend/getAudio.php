@@ -7,14 +7,15 @@
     $response=[];
     
     $getAudio= $user->getAudio($user_id);
-    if($getAudio){
-        $response['data'] = $getAudio;
-        $response['success'] = true;
-    }else{
-        $response['success'] = false;
-        $response['message'] = 'No Audio Found!';
-    }
+    echo json_encode($getAudio);
+    // if($getAudio){
+    //     $response['data'] = $getAudio;
+    //     $response['success'] = true;
+    // }else{
+    //     $response['success'] = false;
+    //     $response['message'] = 'No Audio Found!';
+    // }
     
-    echo json_encode($response);
+    // echo json_encode($response);
 
 ?>

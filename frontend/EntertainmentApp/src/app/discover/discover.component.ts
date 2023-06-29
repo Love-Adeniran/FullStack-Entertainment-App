@@ -11,13 +11,20 @@ export class DiscoverComponent {
     constructor(public e_service : EntertainmentServiceService){}
     public ImagePath = environment.fileUrl;
     public Info:any;
-    public artists=[];
+    public artists:any;
+    public allMsg = '';
+    public artistMsg = '';
+    public bandMsg = '';
+    public DJMsg = '';
     ngOnInit():void{
         this.e_service.MusicianGetInfo().subscribe((data:any)=>{
-            console.log(data);
             this.Info = data;
             console.log(this.Info);
-            
+            if(this.Info.length == 0){
+                this.allMsg= 'No Musician Found'
+                this.artists = 'No Artists Found';
+            }
+
         })
     }
 }

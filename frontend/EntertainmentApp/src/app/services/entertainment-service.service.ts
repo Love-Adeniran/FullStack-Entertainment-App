@@ -50,7 +50,7 @@ export class EntertainmentServiceService {
         return this.httpClient.post<object>(`${this.baseUrl}/musicianUpdateProfile.php`,userObj)
     }
     MusicianEditProfile(userObj:object){
-        return this.httpClient.post<object>(`${this.baseUrl}/musicianEditProfile.php`,userObj)
+        return this.httpClient.post<object>(`${this.baseUrl}/editProfileM.php`,userObj)
     }
     MusicianchangePassword(pass:object){
         return this.httpClient.post<object>(`${this.baseUrl}/changePassword.php`, pass)
