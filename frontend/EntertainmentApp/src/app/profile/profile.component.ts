@@ -30,21 +30,26 @@ export class ProfileComponent {
     public pasWord = '';
     public confirmPasWord = '';
     public user:any;
+    public m_id:any;
     // public password:any;
 
     public edit = false;
     public country = '';
-    // public n_name = '';
+
 
 
     ngOnInit(): void {
         this.progressBar = true;
-        this.e_service.MusicianGetInfo().subscribe((data:any)=>{
-            this.e_service.user.next(data[0]);
-            this.user = data[0];
-            // console.log(this.user);
-            this.progressBar = false; 
+        this.m_id =  localStorage['id'];
+        let id = {musician_id: this.m_id};
+        this.e_service.MusicianGetInfo(id).subscribe((data:any)=>{
+            console.log(data[0]);
+                this.user = data[0];
+                this.e_service.user.next(data[0]);
+                this.progressBar = false; 
+            
         })
+        
     }
 
     getErrMessage() {

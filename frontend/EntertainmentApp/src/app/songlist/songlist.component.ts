@@ -21,30 +21,25 @@ constructor(public e_service : EntertainmentServiceService, public router: Route
     public audioName = '';
     public userInfo:any;
     public category='';
-    public musician_id='';
+    public musician_id:any;
+    public displayedColumns: string[] = ['audio','title', 'name', 'action'];
     public songList:any=[];
 
     ngOnInit():void{
-        this.e_service.MusicianGetInfo().subscribe((data:any)=>{
-
-            if(data[0].musician_id){
-                this.musician_id = data[0].musician_id;
-                let User_id = {id:this.musician_id}
-                this.e_service.MusicianGetAudio(User_id).subscribe((data2:any)=>{
-                    if(data2.success==true){
-                        // console.log(data2.data);
-                        this.songList =data2.data;
+        // this.e_service.user.subscribe((data:any)=>{
+        // user_id = localStorage['id'];
+        this.musician_id = {id:localStorage['id']};
+        this.e_service.MusicianGetAudio(this.musician_id).subscribe((data2:any)=>{
+                    if(data2){
+                        console.log(data2);
+                        this.songList =data2;
                         // console.log(this.songList);
                             
                     }else{
                         this.message1 = data2.message;
                     }
-                })
-            }else{
-                this.router.navigate(['/']);
-            }
-            
         })
+        
 
 
         
@@ -82,7 +77,7 @@ constructor(public e_service : EntertainmentServiceService, public router: Route
             Audio.append('title', this.audioTitle)
             Audio.append('type', this.audioType)
             Audio.append('name', this.audioName);
-            Audio.append('id', this.musician_id);
+            Audio.append('id', localStorage['id']);
             Audio.append('audio', this.audio);
             this.e_service.MusicianUploadAudio(Audio).subscribe((data:any)=>{
                 if(data.success==true){

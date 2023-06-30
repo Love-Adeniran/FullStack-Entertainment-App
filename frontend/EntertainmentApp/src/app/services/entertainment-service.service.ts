@@ -58,8 +58,11 @@ export class EntertainmentServiceService {
     MusicianUploadImage(imageObj:any){
         return this.httpClient.post<object>(`${this.baseUrl}/imageUpload.php`, imageObj)  
     }
-    MusicianGetInfo(){
-        return this.httpClient.get<object>(`${this.baseUrl}/getUsers.php`)
+    MusicianGetInfo(id:any){
+        return this.httpClient.post<object>(`${this.baseUrl}/getEachMusician.php`,id)
+    }
+    MusicianGetAll(){
+        return this.httpClient.get<object>(`${this.baseUrl}/getallmusician.php`)
     }
     MusicianUploadAudio(audioObj:any){
         return this.httpClient.post<object>(`${this.baseUrl}/audioUpload.php`, audioObj)  
@@ -67,7 +70,7 @@ export class EntertainmentServiceService {
     MusicianGetAudio(User_id:object){
         return this.httpClient.post<object>(`${this.baseUrl}/getAudio.php`, User_id)
     }
-    MusicianDeleteAudio(id:object){
-        return this.httpClient.post<object>(`${this.baseUrl}/deleteAudio.php`, id)
+    MusicianDeleteAudio(musician_id:any){
+        return this.httpClient.post<object>(`${this.baseUrl}/deleteAudio.php`, musician_id)
     }
 }

@@ -46,6 +46,11 @@ require_once("Config.php");
             $binder = array();
             return $this->read($query,$binder);
         }
+        public function getEachMusician($id){
+            $query = "SELECT * FROM musician_tb WHERE `musician_id` = ?";
+            $binder = array('s', $id);
+            return $this->read($query,$binder);
+        }
         
         public function musicianeditProfile($nick_name,$p_number,$country,$id){
             $query = "UPDATE musician_tb SET `nick_name`= ?, `phone_number`= ?,`country`= ? WHERE `musician_id`= ?";

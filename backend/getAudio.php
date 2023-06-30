@@ -1,8 +1,8 @@
 <?php
     require 'classes/Users.php';
     $_POST= json_decode(file_get_contents('php://input')); 
-    // $user_id = 4;
-    $user_id = $_POST->id;
+    $user_id = 4;
+    // $user_id = $_POST->id;
     $user = new Users();
     $response=[];
     

@@ -16,6 +16,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -35,7 +36,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     MatSliderModule,
     MatSelectModule,
     MatDialogModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatTableModule
     ],
     exports:[
         MatButtonModule,
@@ -52,7 +54,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
         MatSliderModule,
         MatSelectModule,
         MatDialogModule,
-        MatProgressBarModule
+        MatProgressBarModule,
+        MatTableModule
     ]
 })
 export class MaterialModule { }

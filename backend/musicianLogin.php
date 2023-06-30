@@ -33,6 +33,9 @@ if($musicianLogin){
             ];
             $jwt = \Firebase\JWT\JWT::encode($jwtDetails, '4e3v2o1l', 'HS256');
             $response['jwt'] = $jwt;
+            $response = $musicianLogin;
+            $response['success']= true;
+
     }else{
         $response['success']= false;
         $response['message'] ='Invalid Password!';

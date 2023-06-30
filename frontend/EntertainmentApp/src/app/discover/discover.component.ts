@@ -17,7 +17,7 @@ export class DiscoverComponent {
     public bandMsg = '';
     public DJMsg = '';
     ngOnInit():void{
-        this.e_service.MusicianGetInfo().subscribe((data:any)=>{
+        this.e_service.MusicianGetAll().subscribe((data:any)=>{
             this.Info = data;
             console.log(this.Info);
             if(this.Info.length == 0){
