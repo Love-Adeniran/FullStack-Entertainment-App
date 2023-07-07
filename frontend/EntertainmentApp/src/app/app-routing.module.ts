@@ -25,7 +25,6 @@ const routes: Routes = [
     ],canActivate:[GuestGuard]},
     {path:"musiciandashboard",component:MusicianDashboardComponent, children:[
         {path:"", redirectTo:'profile', pathMatch:'full'},
-
         {path:"profile", component:ProfileComponent},
         {path:"songlist", component:SonglistComponent},
         {path:"videos", component:MusicianDashboardComponent},

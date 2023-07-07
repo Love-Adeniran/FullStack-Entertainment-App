@@ -24,10 +24,12 @@ export class McompleteProfileComponent {
     
     public fetchedprofile:any;
     public profile = false;
-    public country = ''
+    public country = '';
     public town = '';
     public priceRange ='';
-    public image =''
+    public image ='';
+    public musicStyle = '';
+    public eventStyle = '';
     public musicianInfo = {};
 
     ngOnInit():void{

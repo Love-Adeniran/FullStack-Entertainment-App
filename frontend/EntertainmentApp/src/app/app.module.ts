@@ -34,6 +34,7 @@ import { MatListModule } from '@angular/material/list';
 import { SonglistComponent } from './songlist/songlist.component';
 import { SearchComponent } from './search/search.component';
 import { SearchPipePipe } from './pipes/search-pipe.pipe';
+import { FilterComponent } from './filter/filter.component';
 // import { AutoCompleteModule } from 'primeng/autocomplete';
 // import { PrimeNGConfig } from 'primeng/api';
 
@@ -58,6 +59,7 @@ import { SearchPipePipe } from './pipes/search-pipe.pipe';
     SonglistComponent,
     SearchComponent,
     SearchPipePipe,
+    FilterComponent,
     
     ],
     imports: [
