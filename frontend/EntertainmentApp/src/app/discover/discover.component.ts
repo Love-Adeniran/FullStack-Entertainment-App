@@ -16,10 +16,15 @@ export class DiscoverComponent {
     public artistMsg = '';
     public bandMsg = '';
     public DJMsg = '';
+
     ngOnInit():void{
         this.e_service.MusicianGetAll().subscribe((data:any)=>{
-            this.Info = data;
-            console.log(this.Info);
+            if(data.success){
+                this.Info = data.message;
+                console.log(this.Info);
+
+            }
+
             if(this.Info.length == 0){
                 this.allMsg= 'No Musician Found'
                 this.artists = 'No Artists Found';

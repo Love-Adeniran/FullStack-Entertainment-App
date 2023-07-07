@@ -1,0 +1,23 @@
+<!-- <p>search works!</p> -->
+<div class="container p-5 background">
+    <div class="m-5 py-5">
+        <div class="w-100 mx-auto py-5" >
+            <h1 class="search text-center text-muted">Search</h1>
+            <mat-form-field class="w-100">
+                <mat-label>Search Musician</mat-label>
+                    <span matPrefix> <mat-icon color="accent">search</mat-icon> </span>
+                <input matInput placeholder="Search Musician" class="w-100" [(ngModel)]="searchmusician">
+                    <!-- <mat-error *ngIf="fname.invalid">{{ErrorMsg}}</mat-error> -->
+            </mat-form-field>
+        </div>
+        <div class="">
+            <div *ngFor="let id = index; let item of musician | searchPipe:searchmusician" class="border " style="cursor: pointer;">
+                <div class="row" routerLink="{{id}}">
+                    <h3 class="col">{{item.full_name}}</h3>
+                    <p class="col">@{{item.nick_name}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

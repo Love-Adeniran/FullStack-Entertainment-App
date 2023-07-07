@@ -2,7 +2,7 @@
 <mat-tab-group>
     <mat-tab label="All" class="border"> 
         <div *ngIf="Info" class="px-0 row">
-            <div *ngFor="let item of Info" class=" shadow card  col-sm-12 mx-auto p-0 border-0 my-2" style="width: 18rem;">
+            <div *ngFor="let item of Info" class=" shadow card  col-sm-12 mx-auto p-0 border-0 my-2 " style="width: 18rem;">
                 <div class="col-md-12  my-2 p-0">
                     <img class="card-img-top" [src]="ImagePath+item.image" alt="Card image cap">
                     <div class="card-body ">
@@ -14,11 +14,10 @@
             </div>
         </div>
     </mat-tab>
-    <mat-tab label="music artist" class=""> Music Artist
-        <div *ngIf="Info" class="row">
-            <div *ngFor="let item of Info" class="col">
+    <mat-tab label="music artist" class="">
+        <div *ngIf="Info" class="px-0 row">
+            <div *ngFor="let item of Info" class="shadow card col-sm-12 mx-auto p-0 border-0 my-2" style="width: 18rem;">
                 <div class="my-2 p-0" *ngIf="item.category=='Artist'">
-                    <p>hkgghgkh</p>
                     <img class="card-img-top" [src]="ImagePath+item.image" alt="Card image cap">
                     <div class="card-body ">
                         <p class="card-text text-center">@{{item.nick_name}}</p>
@@ -33,10 +32,9 @@
 
         </div> 
     </mat-tab>
-    <mat-tab label="Bands"> Bands 
-        <div *ngIf="Info">
-            
-            <div *ngFor="let item of Info" class="row">
+    <mat-tab label="Bands">
+        <div *ngIf="Info" class="row card">
+            <div *ngFor="let item of Info" class=" shadow  col-sm-12 mx-auto p-0 border-0 my-2" style="width: 18rem;">
                 <div class="col-2 my-2 p-0" *ngIf="item.category=='Band'">
                     <img class="card-img-top" [src]="ImagePath+item.image" alt="Card image cap">
                     <div class="card-body ">
@@ -52,10 +50,12 @@
 
         </div>
     </mat-tab>
-    <mat-tab label="DJ"> DJ 
-        <div *ngIf="Info">
-            <div *ngFor="let item of Info" class="row">
-                <div class="col-4 my-2 p-0" *ngIf="item.category=='DJ'">
+    <mat-tab label="DJ">  
+        <div *ngIf="Info" class="row card">
+            <!-- <p>{{Info[0].category}}</p> -->
+            
+            <div *ngFor="let item of Info" class="shadow  col-sm-12 mx-auto p-0 border-0 my-2" style="width: 18rem;">
+                <div class="" *ngIf="item.category=='DJ'">
                     <img class="card-img-top" [src]="ImagePath+item.image" alt="Card image cap">
                     <div class="card-body ">
                         <p class="card-text text-center">@{{item.nick_name}}</p>

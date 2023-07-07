@@ -32,6 +32,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { SonglistComponent } from './songlist/songlist.component';
+import { SearchComponent } from './search/search.component';
+import { SearchPipePipe } from './pipes/search-pipe.pipe';
 // import { AutoCompleteModule } from 'primeng/autocomplete';
 // import { PrimeNGConfig } from 'primeng/api';
 
@@ -54,6 +56,8 @@ import { SonglistComponent } from './songlist/songlist.component';
     TestComponent,
     NavBarComponent,
     SonglistComponent,
+    SearchComponent,
+    SearchPipePipe,
     
     ],
     imports: [

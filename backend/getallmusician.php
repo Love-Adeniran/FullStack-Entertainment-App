@@ -7,7 +7,12 @@
     $user = new Users();
     $getAllMusician = $user->getAllMusician();
     if($getAllMusician){
-        echo json_encode($getAllMusician);
-        // $response[''];
+        $response['message'] = $getAllMusician;
+        $response['success'] = true;
+
+    }else{
+        $response['message'] = "Unable to get all musician!";
+        $response['success'] = false;
     }
+    echo json_encode($response);
     ?>

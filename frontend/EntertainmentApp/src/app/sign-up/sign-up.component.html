@@ -26,8 +26,8 @@
             <div class="w-100 mx-auto px-4 " *ngIf="isChecked==true">
                 <mat-form-field class="w-100">
                     <mat-label>Nick Name</mat-label>
-                    <input matInput placeholder="Nick Name" [(ngModel)]="nickName" #fname="ngModel" required minlength="5" maxlength="100" [class.is.valid]="fname.valid" [class.is.invalid]="fname.invalid">
-                    <mat-error *ngIf="fname.invalid">{{ErrorMsg}}</mat-error>
+                    <input matInput placeholder="Nick Name" [(ngModel)]="nickName" #Nname="ngModel" required minlength="5" maxlength="100" [class.is.valid]="fname.valid" [class.is.invalid]="fname.invalid">
+                    <mat-error *ngIf="Nname.invalid">{{ErrorMsg}}</mat-error>
                 </mat-form-field>
             </div>
 

@@ -43,7 +43,7 @@ export class ProfileComponent {
         this.m_id =  localStorage['id'];
         let id = {musician_id: this.m_id};
         this.e_service.MusicianGetInfo(id).subscribe((data:any)=>{
-            console.log(data[0]);
+            // console.log(data[0]);
                 this.user = data[0];
                 this.e_service.user.next(data[0]);
                 this.progressBar = false; 

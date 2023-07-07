@@ -8,12 +8,10 @@ import { GuestDashboardComponent } from './dashboard/dashboard-guest.component';
 import { MusicianDashboardComponent } from './musician-dashboard/musician-dashboard.component';
 import { GuestGuard } from './guards/guest.guard';
 import { MusicianGuard } from './guards/musician.guard';
-// import { TestComponent } from './test/test.component';
-// import { NavBarComponent } from './nav-bar/nav-bar.component';
-// import { McompleteProfileComponent } from './mcomplete-profile/mcomplete-profile.component';
 import { ProfileComponent } from './profile/profile.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { SonglistComponent } from './songlist/songlist.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
     {path:"", redirectTo:'home', pathMatch:'full'},
@@ -23,10 +21,11 @@ const routes: Routes = [
     {path:"guestdashboard",component:GuestDashboardComponent, children:[
         {path:"", redirectTo:'discover', pathMatch:'full'},
         {path:"discover", component:DiscoverComponent},
+        {path:"search", component:SearchComponent},
     ],canActivate:[GuestGuard]},
     {path:"musiciandashboard",component:MusicianDashboardComponent, children:[
         {path:"", redirectTo:'profile', pathMatch:'full'},
-        // {path:"profile", component:McompleteProfileComponent},
+
         {path:"profile", component:ProfileComponent},
         {path:"songlist", component:SonglistComponent},
         {path:"videos", component:MusicianDashboardComponent},
