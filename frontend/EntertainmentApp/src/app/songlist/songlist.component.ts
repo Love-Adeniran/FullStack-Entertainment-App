@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { EntertainmentServiceService } from '../services/entertainment-service.service';
 import { environment } from '../environment/environment';
 import { Router } from '@angular/router';
+import { MatButtonToggleGroup } from '@angular/material/button-toggle';
 
 @Component({
     selector: 'app-songlist',
@@ -26,23 +27,22 @@ constructor(public e_service : EntertainmentServiceService, public router: Route
     public songList:any=[];
 
     ngOnInit():void{
-        // this.e_service.user.subscribe((data:any)=>{
-        // user_id = localStorage['id'];
         this.musician_id = {id:localStorage['id']};
-        this.e_service.MusicianGetAudio(this.musician_id).subscribe((data2:any)=>{
-                    if(data2){
-                        console.log(data2);
-                        this.songList =data2;
+        this.e_service.MusicianGetAudio(this.musician_id).subscribe((data:any)=>{
+                    if(data.success){
+                        console.log(data);
+                        this.songList =data.songs;
                         // console.log(this.songList);
                             
                     }else{
-                        this.message1 = data2.message;
+                        this.message1 = data.message;
                     }
         })
         
+    }
 
-
-        
+    isSticky(buttonToggleGroup: MatButtonToggleGroup, id: string) {
+    return (buttonToggleGroup.value || []).indexOf(id) !== -1;
     }
 
     open() {

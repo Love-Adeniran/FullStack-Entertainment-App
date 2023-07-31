@@ -58,8 +58,8 @@ export class EntertainmentServiceService {
     MusicianUploadImage(imageObj:any){
         return this.httpClient.post<object>(`${this.baseUrl}/imageUpload.php`, imageObj)  
     }
-    MusicianGetInfo(id:any){
-        return this.httpClient.post<object>(`${this.baseUrl}/getEachMusician.php`,id)
+    MusicianGetInfo(email:any){
+        return this.httpClient.post<object>(`${this.baseUrl}/getEachMusician.php`,email)
     }
     MusicianGetAll(){
         return this.httpClient.get<object>(`${this.baseUrl}/getallmusician.php`)

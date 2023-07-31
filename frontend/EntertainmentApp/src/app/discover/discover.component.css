@@ -11,9 +11,12 @@
     /* box-shadow: 0 0 8px 8px rgba(0, 0, 0, 0.2); */
 }
 .h{
-    height: 76vh;
+    height: 86vh;
     width: 98vw;
 }
+/* .h2{
+    height: 4vh;
+} */
 .text-deco{
     text-decoration: none;
     color: #fff;

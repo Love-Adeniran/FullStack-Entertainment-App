@@ -1,0 +1,45 @@
+<div class="container-fluid" >
+    <div class="p-2 mx-auto">
+        <h3 class="text-center">@{{eachMusician.nick_name}}</h3>
+        <div class="py-2 col-sm-12">
+            <img [src]="ImagePath+eachMusician.image" class="mx-auto d-block rounded" alt="">
+        </div>
+        <div class="text-center">
+            <h5 class="text-center">{{eachMusician.category}}</h5>
+            <h5 class="text-center">+234 {{eachMusician.phone_number}}</h5>
+            <h5 class="text-center">{{eachMusician.email}}</h5>
+            <h5 class="text-center">{{eachMusician.town}}, {{eachMusician.country}}</h5>
+        </div>
+        <hr style="color: yellow;">
+        <div class="container text-center my-2">
+            <h2>SongList</h2>
+            <div *ngIf="Songs" class="mx-auto my-2">
+                <div class="my-2 ">
+                    <section class="example-container mat-elevation-z8 my-2 row" tabindex="0" >
+                        <mat-table [dataSource]="Songs" color="accent" class="col col-sm-6" style="max-width: 100vw; overflow-y: auto;">
+                            <ng-container matColumnDef="audio" [sticky]="isSticky" color="accent">
+                                <th mat-header-cell *matHeaderCellDef class="text-warning"> Audio </th>
+                                <td mat-cell *matCellDef="let element" class="text-warning"> 
+                                    <audio [src]="songPath+element.audio" class="p-2"  type="audio/*" controls>
+                                    </audio> 
+                                </td>
+                            </ng-container>
+                            <ng-container matColumnDef="title">
+                                <th mat-header-cell *matHeaderCellDef class="text-warning"> Title </th>
+                                <td mat-cell *matCellDef="let element">{{element.audio_title}} </td>
+                            </ng-container>
+                            <ng-container matColumnDef="name">
+                                <th mat-header-cell *matHeaderCellDef class="text-warning"> Name </th>
+                                <td mat-cell *matCellDef="let element"> {{element.audio_name}} </td>
+                            </ng-container>
+                            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+                            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                        </mat-table>
+                    </section>
+                    <!-- <audio [src]="songPath+item.audio" controls></audio> -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

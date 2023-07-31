@@ -17,6 +17,7 @@ export class DiscoverComponent {
     public bandMsg = '';
     public DJMsg = '';
 
+
     ngOnInit():void{
         this.e_service.MusicianGetAll().subscribe((data:any)=>{
             if(data.success){
@@ -32,4 +33,9 @@ export class DiscoverComponent {
 
         })
     }
+
+    // sayHi(){
+    //     alert('hi');
+    //     this.discover = false;
+    // }
 }

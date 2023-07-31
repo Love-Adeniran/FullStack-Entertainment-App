@@ -1,11 +1,11 @@
 <?php
     require ('classes/Users.php');
     $_POST = json_decode(file_get_contents('php://input'));
-    $id = $_POST->musician_id;
+    $email = $_POST->email;
     $response;
     
     $user = new Users();
-    $getEachMusician = $user->getEachMusician($id);
+    $getEachMusician = $user->getEachMusician($email);
     if($getEachMusician){
         $response['success'] = true; 
         $response= $getEachMusician;

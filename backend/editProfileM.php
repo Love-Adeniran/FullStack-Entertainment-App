@@ -6,9 +6,10 @@
     $nick_name = $_POST->nick_name;
     $p_number= $_POST->p_Number;
     $country = $_POST->country;
+    $music_style = $_POST->music_style;
     $response;
     $user = new Users();
-    $edit = $user->musicianeditProfile($nick_name,$p_number,$country,$id);
+    $edit = $user->musicianeditProfile($nick_name,$p_number,$country, $music_style,$id);
     if($edit){
         $response = $edit;
         $response['message'] = 'Profile Saved successful!';

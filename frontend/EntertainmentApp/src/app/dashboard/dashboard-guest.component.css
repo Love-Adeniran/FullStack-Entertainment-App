@@ -1,0 +1,20 @@
+.h{
+    height: 100vh;
+}
+.searchicon{
+    display: flex;
+}
+
+
+/* @media only screen and (max-width: 768px) { */
+  /* For mobile phones: */
+  /* [class*="col-"] {
+    width: 100%;
+  }
+  .form{
+    display: none;
+  }
+  .searchicon{
+    display: inline;
+}
+} */

@@ -12,17 +12,24 @@ import { ProfileComponent } from './profile/profile.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { SonglistComponent } from './songlist/songlist.component';
 import { SearchComponent } from './search/search.component';
+import { EachProfileComponent } from './each-profile/each-profile.component';
+import { BookingsComponent } from './bookings/bookings.component';
+import { NotificationsComponent } from './notifications/notifications.component';
 
 const routes: Routes = [
     {path:"", redirectTo:'home', pathMatch:'full'},
     {path:"home",  component:LandingPageComponent},
     {path:"signup", component:SignUpComponent},
     {path:"signin", component:LogInComponent},
-    {path:"guestdashboard",component:GuestDashboardComponent, children:[
-        {path:"", redirectTo:'discover', pathMatch:'full'},
-        {path:"discover", component:DiscoverComponent},
-        {path:"search", component:SearchComponent},
+    {path:"dash",component:GuestDashboardComponent, children:[
+        {path:'', redirectTo:'discover', pathMatch:'full'},
+        {path:'discover', component:DiscoverComponent},
+        {path:'search', component:SearchComponent},
+        {path:'booking', component:BookingsComponent},
+        {path:'notification', component:NotificationsComponent},
+        {path:":id", component:EachProfileComponent}
     ],canActivate:[GuestGuard]},
+    
     {path:"musiciandashboard",component:MusicianDashboardComponent, children:[
         {path:"", redirectTo:'profile', pathMatch:'full'},
         {path:"profile", component:ProfileComponent},

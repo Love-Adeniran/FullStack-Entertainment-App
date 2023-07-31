@@ -21,6 +21,8 @@ export class ProfileComponent {
     public  nickName = '';
     public pNumber = '';
     public email = '';
+    public country = '';
+    public musicStyle = '';
 
     public emailControl:any;
     public emailErr = '';
@@ -30,20 +32,21 @@ export class ProfileComponent {
     public pasWord = '';
     public confirmPasWord = '';
     public user:any;
-    public m_id:any;
+    // public m_id:any;
+    public m_Email= '';
     // public password:any;
 
     public edit = false;
-    public country = '';
 
 
 
     ngOnInit(): void {
         this.progressBar = true;
-        this.m_id =  localStorage['id'];
-        let id = {musician_id: this.m_id};
-        this.e_service.MusicianGetInfo(id).subscribe((data:any)=>{
-            // console.log(data[0]);
+        // this.m_id =  localStorage['id'];
+        // let id = {musician_id: this.m_id};
+        this.m_Email = localStorage['musicianEmail'];
+        let email = {email:this.m_Email};
+        this.e_service.MusicianGetInfo(email).subscribe((data:any)=>{
                 this.user = data[0];
                 this.e_service.user.next(data[0]);
                 this.progressBar = false; 
@@ -85,6 +88,9 @@ export class ProfileComponent {
             alert("Password does not match");
         }
     }
+    close(){
+        this.changePic = false;
+    }
     changePicture(){
         this.changePic = true;
     }
@@ -106,7 +112,6 @@ export class ProfileComponent {
         })
     }
 
-
     showProfile(){
         // this.dialogOpen = true;
         this.edit =true;
@@ -114,11 +119,11 @@ export class ProfileComponent {
     saveEditedProfile(){
         this.emailControl = this.e_service.emailFormControl;
         this.getErrMessage()
-        if(this.nickName==''|| this.pNumber=='' || this.country==''){
+        if(this.nickName==''|| this.pNumber=='' || this.country=='' || this.musicStyle==''){
             this.generalErrorMsg = 'There is an Empty field, Kindly fill!'
         }
         else{
-            let eachDetails = { nick_name:this.nickName, p_Number: this.pNumber,musician_id:this.user.musician_id, country:this.country};
+            let eachDetails = { nick_name:this.nickName, p_Number: this.pNumber,musician_id:this.user.musician_id, country:this.country, music_style:this.musicStyle};
             this.e_service.MusicianEditProfile(eachDetails).subscribe((data:any)=>{
                 console.log(data);
                 if(data.success == true){

@@ -30,6 +30,7 @@ export class McompleteProfileComponent {
     public image ='';
     public musicStyle = '';
     public eventStyle = '';
+    public musician_email = localStorage['musicianEmail'];
     public musicianInfo = {};
 
     ngOnInit():void{
@@ -38,17 +39,18 @@ export class McompleteProfileComponent {
     
 
     fileUpload(event:any){
-        // console.log(event)
         this.image = event.target.files[0];
     }
     
     submit(){
-        // let musicianInfo = {selected:this.selected,country:this.country,town:this.town,priceRange:this.priceRange,imageFile:this.image}
         let musicianInfo = new FormData();
         musicianInfo.append("selected", this.selected)
         musicianInfo.append("country", this.country)
         musicianInfo.append("town", this.town)
+        musicianInfo.append("musicStyle", this.musicStyle)
+        musicianInfo.append("eventStyle", this.eventStyle)
         musicianInfo.append("priceRange", this.priceRange)
+        musicianInfo.append("email", this.musician_email)
         musicianInfo.append("imageFile", this.image)
 
         this.e_service.MusicianInsertInfo(musicianInfo).subscribe((data:any) =>{
@@ -57,7 +59,6 @@ export class McompleteProfileComponent {
                 this.profile = true;
             }
         })
-        // console.log(Info);
         
         
     }

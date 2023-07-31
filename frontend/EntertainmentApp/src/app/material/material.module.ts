@@ -17,6 +17,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatTableModule} from '@angular/material/table';
+import {MatGridListModule} from '@angular/material/grid-list';
+
 
 @NgModule({
   declarations: [],
@@ -37,7 +39,8 @@ import {MatTableModule} from '@angular/material/table';
     MatSelectModule,
     MatDialogModule,
     MatProgressBarModule,
-    MatTableModule
+    MatTableModule,
+    MatGridListModule,
     ],
     exports:[
         MatButtonModule,
@@ -55,7 +58,9 @@ import {MatTableModule} from '@angular/material/table';
         MatSelectModule,
         MatDialogModule,
         MatProgressBarModule,
-        MatTableModule
+        MatTableModule,
+        MatGridListModule,
+
     ]
 })
 export class MaterialModule { }

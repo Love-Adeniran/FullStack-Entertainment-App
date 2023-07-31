@@ -1,0 +1,12 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    position: relative;
+}
+.bottomright {
+  position: absolute;
+  bottom: 8px;
+  right: 80px;
+  font-size: 18px;
+}

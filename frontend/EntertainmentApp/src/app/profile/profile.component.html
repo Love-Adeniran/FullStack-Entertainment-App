@@ -1,7 +1,5 @@
-
 <div >
     <ng-container color='warn'>
-        
         <mat-card class="example-card p-4">
             <div *ngIf="initial==true" class="border p-4 mx-auto">
                 <h3 class="text-center text-warning">Change Password</h3>
@@ -61,6 +59,13 @@
                             <mat-error *ngIf="cname.invalid">{{ErrorMsg}}</mat-error>
                         </mat-form-field>
                     </div>
+                    <div class="w-100 mx-auto px-4 border-bottom border-warning" >
+                        <mat-form-field class="w-100">
+                            <mat-label>Music Style </mat-label>
+                            <input matInput placeholder="music style" [(ngModel)]="musicStyle" #m_Style="ngModel" required minlength="5" maxlength="100" [class.is.valid]="m_Style.valid" [class.is.invalid]="m_Style.invalid">
+                            <mat-error *ngIf="m_Style.invalid">{{ErrorMsg}}</mat-error>
+                        </mat-form-field>
+                    </div>
                     <div class="text-center text-warning">
                         <button mat-raised-button class="text-warning" (click)="saveEditedProfile()">
                             <mat-icon color="accent">save</mat-icon>
@@ -85,16 +90,18 @@
                         <mat-label color="accent" class="text-warning">Upload photo</mat-label>
                         <input type="file" class="w-100 btn btn-warning form-control"(change)="fileUpload($event)" >
                     </div>
-            </div>
-
-            <mat-card-header *ngIf="user" class="mx-auto text-center">
-                <div class=""> 
+                </div>
+                <div class="mx-auto">
+                    <button mat-raised-button  *ngIf="changePic==true" (click)="close()"> <mat-icon color="accent" >close </mat-icon> </button>
                     <button class="text-warning" mat-raised-button (click)="changePicture()">
                         <mat-icon color="accent">edit</mat-icon> change Picture</button>
                 </div>
+
+            <mat-card-header *ngIf="user" class="mx-auto text-center">
                 <mat-card-title ><p>{{user.full_name}}</p></mat-card-title>
                 <mat-card-subtitle ><p>@{{user.nick_name}}</p></mat-card-subtitle>
                 <mat-card-subtitle ><p>{{user.category}}</p></mat-card-subtitle>
+                <mat-card-subtitle ><p>Genre: {{user.music_style}}</p></mat-card-subtitle>
             </mat-card-header>
             
             <mat-card-content class="mx-auto text-center" *ngIf="user">

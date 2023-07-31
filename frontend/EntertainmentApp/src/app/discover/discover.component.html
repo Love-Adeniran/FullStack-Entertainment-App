@@ -1,13 +1,12 @@
-<!-- <p>discover works!</p> -->
-<mat-tab-group>
+<mat-tab-group class="" style="max-height: 85vh; overflow-y: auto;">
 
     <!-- All -->
-    <mat-tab label="All" class="border ">
-        <div class="h">
+    <mat-tab label="All" class="border " >
+        <div class="container ">
             <div *ngIf="Info" class="row">
                 <h2 class="text-muted">Popular Musician</h2>
-                <div *ngFor="let item of Info"  style="width: 18rem;" class="col-md col-sm-6 mx-auto my-2">
-                    <mat-card class="example-card" style="min-height: 30vh;">
+                <div *ngFor="let id = index; let item of Info"  style="width: 18rem;" class="col-md col-sm-6 mx-auto my-2" >
+                    <mat-card class="example-card" style="min-height: 30vh;" routerLink="/dash/{{id}}" style="cursor: pointer;">
                         <mat-card-header>
                             <mat-card-title-group>
                                 <img mat-card-md-image class="w-100" [src]="ImagePath+item.image" alt="Card image cap">
@@ -28,10 +27,10 @@
                 </div>
             </div>
 
-            <div>
+            <div class="py-2">
                 <h2>Event Types</h2>
-                <div class="row shadow p-4 border">
-                    <div class="col-2 card">
+                <div class="row shadow p-4">
+                    <div class="col card">
                         <img src="../../assets/images/pexels-pixabay-433452.jpg" alt="" width="100%" height="100%">
                         <p>BirthDay Party🎉</p>
                     </div>
@@ -39,17 +38,23 @@
                         <img src="../../assets/images/pexels-francisco-sanchez-10888608.jpg" alt="" width="100%" height="100%">
                         <p>Wedding Party🎉</p>
                     </div>
-                    <div class="col card"><img src="" alt="" width="100%" height="100%"></div>
-                    <div class="col card"><img src="" alt="" width="100%" height="100%"></div>
+                    <div class="col card">
+                        <img src="../../assets/images/adrianna-geo-JWlZS708L1Y-unsplash.jpg" alt="" width="100%" height="100%">
+                        <p>Funeral Party🎉</p>
+                    </div>
+                    <div class="col card">
+                        <img src="../../assets/images/vasily-koloda-8CqDvPuo_kI-unsplash.jpg" alt="" width="100%" height="100%">
+                        <p>Graduation Party🎉</p>
+                    </div>
                 </div>
             </div>
         </div>
     </mat-tab>
 
     <!-- music Artist -->
-    <mat-tab label="music artist" class="">
+    <mat-tab label="music artist" class="h">
         <div class="h">
-            <div *ngIf="Info" class="row ">
+            <div *ngIf="Info" class="row">
                 <div *ngFor="let item of Info" class="shadow card col-sm-12 mx-auto p-0 border-0 my-2" style="width: 18rem;">
                     <div class="my-2 p-0" *ngIf="item.category=='Artist'">
                         <mat-card class="example-card" style="min-height: 30vh;">
@@ -133,4 +138,5 @@
         </div>
     </mat-tab>
 </mat-tab-group>
-
+<!-- <p>dashboard works!</p> -->
+<!-- <app-dashboard></app-dashboard> -->

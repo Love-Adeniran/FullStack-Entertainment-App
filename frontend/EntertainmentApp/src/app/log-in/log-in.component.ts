@@ -52,7 +52,7 @@ constructor(public router: Router, public e_Service:EntertainmentServiceService,
                     this.message = 'Signed In Successfully';
                     this.duration = this.duration*1000;
                     this.openSnackBar(this.message, this.action);
-                    this.router.navigate(['/guestdashboard']);
+                    this.router.navigate(['/dash']);
                 }else{
                     this.ResponseErrorMsg = data.message;
                     this.ErrorMsg = 'Incorrect Email or Password!'
@@ -69,11 +69,12 @@ constructor(public router: Router, public e_Service:EntertainmentServiceService,
                 this.Response = data.success;
                 if(this.Response==true){
                     // localStorage['musician_details']= data[0]
-                    this.e_Service.user.next(data[0]);
-                    this.e_Service.user.subscribe((data:any)=>{
-                        console.log(data.musician_id);
-                        localStorage['id'] = data.musician_id
-                    })
+                    console.log(data.session);
+                    localStorage['musicianEmail'] = data.session
+                    this.e_Service.user.next(data.session);
+                    // this.e_Service.user.subscribe((data:any)=>{
+                    //     localStorage['id'] = data.musician_id
+                    // })
                     localStorage['users_jwt'] = data.jwt;
                     this.message = 'Sign In Successfully';
                     this.duration = this.duration*1000;

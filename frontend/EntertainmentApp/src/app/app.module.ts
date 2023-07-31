@@ -35,6 +35,7 @@ import { SonglistComponent } from './songlist/songlist.component';
 import { SearchComponent } from './search/search.component';
 import { SearchPipePipe } from './pipes/search-pipe.pipe';
 import { FilterComponent } from './filter/filter.component';
+import { EachProfileComponent } from './each-profile/each-profile.component';
 // import { AutoCompleteModule } from 'primeng/autocomplete';
 // import { PrimeNGConfig } from 'primeng/api';
 
@@ -60,6 +61,7 @@ import { FilterComponent } from './filter/filter.component';
     SearchComponent,
     SearchPipePipe,
     FilterComponent,
+    EachProfileComponent,
     
     ],
     imports: [

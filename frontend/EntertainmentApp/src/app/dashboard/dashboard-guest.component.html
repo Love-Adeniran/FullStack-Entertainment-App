@@ -1,60 +1,60 @@
 <!-- <p>dashboard works!</p> -->
-<mat-toolbar class="bg-light border-warning border-bottom ">
-    <div class="col-6">
-        <span class="text-warning">bat l'amour Events</span>
-    </div>
-    <div class="col-6 mx-end text-end text-warning">
-        <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon"><mat-icon>favorite</mat-icon>
-        </button>
-        <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"><mat-icon>share</mat-icon>
-        </button>
-    </div>
-</mat-toolbar>
-<mat-tab-group headerPosition="below" color="accent" >
-    <div >
-        <mat-tab >
-            <ng-template mat-tab-label>
-                <mat-icon class="example-tab-icon" color="accent">home</mat-icon>
-            Discover
-            </ng-template>
-            <app-discover/>
-        </mat-tab>
-    </div>
-    <div>
-        <mat-tab >
-            <ng-template mat-tab-label >
-                <mat-icon class="example-tab-icon" color="accent">search</mat-icon>
-                Search
-            </ng-template>
-            <app-search></app-search>
-        </mat-tab>
-    </div>
-    <div>
-        <mat-tab >
-            <ng-template mat-tab-label >
-                <mat-icon class="example-tab-icon" color="accent">book_online</mat-icon>
-                Bookings
-            </ng-template>
-            <app-bookings/>
-        </mat-tab>
-    </div>
-    <div>
-        <mat-tab >
-            <ng-template mat-tab-label >
-                <mat-icon class="example-tab-icon" color="accent">notifications</mat-icon>
-                Notifications
-            </ng-template>
-            <app-notifications/>
-        </mat-tab>
-    </div>
-    <div>
-        <mat-tab >
-            <ng-template mat-tab-label >
-                <mat-icon class="example-tab-icon" color="accent">account_circle</mat-icon>
-                Profile
-            </ng-template>
-            <!-- <app-profile/> -->
-        </mat-tab>
+
+<mat-sidenav-container  class="sidenav-container ">
+    <mat-sidenav #drawer  class="sidenav bg-warning" fixedInViewport
+        [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+        [mode]="(isHandset$ | async) ? 'over' : 'side'"
+        [opened]="(isHandset$ | async) === false">
+    <mat-toolbar class="text-warning">
+        <button mat-icon-button class="example-icon" ><mat-icon color="accent" class="">menu</mat-icon></button>Menu
+    </mat-toolbar>
+    <mat-nav-list >
+        <a mat-list-item routerLink="/dash/discover" 
+        class="rounded-pill text-center my-2" >
+        <mat-icon class="example-tab-icon text-light fs-3">home</mat-icon> 
+        <span class="text-light rounded-pill p-2 mx-2 bg-warning">Discover</span> 
+    </a>
+    <a mat-list-item routerLink="/dash/search" class="rounded-pill text-center my-2" >
+        <mat-icon class="example-tab-icon text-light fs-3">search</mat-icon>
+        <span class="text-light rounded-pill p-2 mx-2 bg-warning">Search</span>
+    </a>
+    <a mat-list-item routerLink="/dash/booking"  class="rounded-pill text-center my-2" >
+        <mat-icon class=" text-light example-tab-icon">book_online</mat-icon> 
+        <span class="text-light rounded-pill p-2 mx-2 bg-warning">Bookings</span>
+    </a>
+    <a mat-list-item routerLink="/dash/notification"  class="rounded-pill text-center my-2" >
+        <mat-icon class=" text-light example-tab-icon">notifications</mat-icon> 
+        <span class="text-light rounded-pill p-2 mx-2 bg-warning">Notifications</span>
+    </a>
+</mat-nav-list>
+
+</mat-sidenav>
+<mat-sidenav-content>
+    <mat-toolbar class="bg-light border-warning border-bottom " >
+        <div class="col-6" >
+            <span class="text-warning">bat l'amour Events</span>
+        </div>
+        <div class="col-6 mx-end text-end text-warning" (click)="dispSearch()">
+            <mat-form-field *ngIf="search==true" class="col-8">
+                <span matPrefix> <mat-icon color="accent">search</mat-icon> </span>
+                <input matInput placeholder="Search Musician" class="w-100" [(ngModel)]="searchmusician" >
+            </mat-form-field>
+                <span   *ngIf="search==false" class="text-muted" mat-icon-button>
+                <mat-icon color="accent">search</mat-icon>
+                </span>
+            <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+                <mat-icon>favorite</mat-icon>
+            </button>
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon"><mat-icon>share</mat-icon>
+            </button>
+        </div>
+    </mat-toolbar>
+    <div style="max-height: 85vh; overflow-y: auto;" class=""  >
+        <router-outlet></router-outlet>
     </div>
 
-</mat-tab-group>
+
+</mat-sidenav-content>
+</mat-sidenav-container>
+
+

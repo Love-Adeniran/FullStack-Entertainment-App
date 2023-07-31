@@ -1,1 +1,167 @@
-<p>bookings works!</p>
+<div class="">
+    <h1 class="text-center text-warning">Bookings</h1>
+</div>
+<div class="row " style=" ">
+    <div class="col-md-6 col-sm-12 p-2 my-2 border-warning border-end">
+        <div class="px-2 w-100 py-0">
+            <div class="">
+                <h1 class="text-center text-warning">How It Started!</h1>
+            </div>
+            <mat-progress-bar
+                class="example-margin"
+                [color]="color"
+                [mode]="mode"
+                [value]="value1"
+                [bufferValue]="bufferValue">
+            </mat-progress-bar>
+            <div>
+                <ol>
+                    <div class="p-4">
+                        <li><p>Tell us about your Event.</p> </li>
+                    </div>
+                    <div class="p-4">
+                        <li><p>Relevant musicians are instantly alerted.</p></li>
+                    </div>
+                    <div class="p-4">
+                        <li><p>Available musician respond with tailored quotes.</p></li>
+                    </div>
+                </ol>
+            </div>
+        </div> 
+    </div>
+
+    <div class=" col-md-6 col-sm-12 py-2">
+        <div class="px-2 w-100 p-2 my-2 mx-auto">
+            <div class="">
+                <h1 class="text-center text-warning">1</h1>
+            </div>
+            <mat-progress-bar
+                class="example-margin"
+                [color]="color"
+                [mode]="mode"
+                [value]="value2"
+                [bufferValue]="bufferValue">
+            </mat-progress-bar>
+            <div class="p-2 m-2">
+                <p><b>What type of musician are you looking for?</b></p>
+                <mat-form-field color="accent" class="example-full-width">
+                <mat-label color="accent">Select</mat-label>
+                    <mat-select [(value)]="selected" color="accent"  class="" required [(ngModel)]="selected">
+                            <mat-option value="Artist" class="">Artist</mat-option>
+                            <mat-option value="Band" class="">Band</mat-option>
+                            <mat-option value="DJ" class="">DJ</mat-option>
+                        </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="p-2 m-2">
+                <p><b>When is the event?</b></p>
+                <div>
+                    <input type="date" class="form-control border-warning">
+                </div>
+            </div>
+            <div class="p-2 m-2">
+                <p><b>What styles of music would you like?</b></p>
+                <mat-form-field color="accent" class="example-full-width">
+                <mat-label>Select</mat-label>
+                    <mat-select color="accent">
+                        <mat-option value="one">First option</mat-option>
+                        <mat-option value="two">Second option</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="p-2 m-2">
+                <p><b>Where is your event taking place?</b></p>
+                <mat-form-field color="accent" class="example-full-width">
+                    <mat-label>Event Location</mat-label>
+                    <input type="text" matInput color="accent">
+                    <mat-icon matPrefix color="accent">location_on</mat-icon>
+                </mat-form-field>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <div class="row ">
+        <div class="col-md-6 col-sm-12 border-end border-warning">
+            <div class="px-2 w-100 p-2 my-2 mx-auto">
+                <div class="">
+                    <h1 class="text-center text-warning">2</h1>
+                </div>
+                <mat-progress-bar
+                    class="example-margin"
+                    [color]="color"
+                    [mode]="mode"
+                    [value]="value3"
+                    [bufferValue]="bufferValue">
+                </mat-progress-bar>
+                <div class="p-2 m-2">
+                    <p><b>What time would you like them to start?</b></p>
+                        <div>
+                            <label for=""></label>
+                            <input type="time" class="form-control border-warning">
+                        </div>
+                </div>
+                <div class="p-2 m-2 example-full-width">
+                    <p><b>How long will the musician be needed?</b></p>
+                    <mat-form-field color="accent">
+                        <mat-label>2hours 30minutes</mat-label>
+                        <input type="text" matInput color="accent">
+                        <mat-icon matPrefix color="accent">timer</mat-icon>
+                        <div></div>
+                    </mat-form-field>
+                </div>
+                <div class="p-2 m-2">
+                    <p><b>What type of event will this be?</b></p>
+                    <mat-form-field color="accent" class="example-full-width">
+                        <mat-select color="accent">
+                        <mat-option value="one" color="accent">Wedding Party🎉</mat-option>
+                        <mat-option value="two" color="accent">Funeral Party🎉</mat-option>
+                        <mat-option value="two" color="accent">Retirement Party🎉</mat-option>
+                        <mat-option value="two" color="accent">Matriculation Party🎉</mat-option>
+                        <mat-option value="two" color="accent">Convocation/Graduation Party🎉</mat-option>
+                        <mat-option value="two" color="accent">Birthday Party🎉</mat-option>
+                        <mat-option value="two" color="accent">Naming Ceremony🎉</mat-option>
+                        <mat-option value="two" color="accent">Others</mat-option>
+                    </mat-select>
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="px-2 w-100 p-2 my-2 mx-auto">
+                <div class="">
+                    <h1 class="text-center text-warning">3</h1>
+                </div>
+                <mat-progress-bar
+                    class="example-margin"
+                    [color]="color"
+                    [mode]="mode"
+                    [value]="value4"
+                    [bufferValue]="bufferValue">
+                </mat-progress-bar>
+                <div class="p-2 m-2">
+                    <p><b>What is your maximum budget?</b></p>
+                    <mat-form-field color="accent" class="example-full-width" >
+                        <mat-label color="accent">Maximum budget</mat-label>
+                        <input type="text" matInput value="">
+                        <span matTextPrefix>$&nbsp;</span>
+                        <span matTextSuffix>.00</span>
+                    </mat-form-field>
+                </div>
+
+                <div class="p-2 m-2">
+                    <p><b>What else should the musician(s) Know about your event?</b></p>
+                    <mat-form-field color="accent" class=" w-100" >
+                        <textarea matInput></textarea>
+                        <mat-hint>Give musician as much information as possible about your wedding including venue requirements and any other relevant details</mat-hint>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="bottom-right border  p-2" >
+                <button mat-raised-button color="accent" class="mx-2"><mat-icon >arrow_back_ios_new</mat-icon>Back to Disvover</button>
+                <button mat-raised-button color="accent" class="mx-2"><mat-icon >send</mat-icon>Submit</button>
+            </div>
+        </div>
+    </div>
+

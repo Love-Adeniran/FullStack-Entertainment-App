@@ -1,7 +1,5 @@
 <?php
 require_once("Config.php");
-// use Firebase\JWT\JWT;
-// use Firebase\JWT\Key;
     class Users extends Config{
         public function __construct(){
             parent::__construct();
@@ -26,14 +24,6 @@ require_once("Config.php");
             return $this->read($query,$binder);
         }
         
-        //Jwt decode
-        // public function getJWTdetails(){
-        //     $header = getallheaders();
-        //     $jwtHeader = $header['authorization'];
-        //     $jwt = trim(substr($jwtHeader,7));
-        //     $jwtDetails = JWT::decode($jwt, new Key("4e3v2o1l", 'HS256'));
-        //     return $jwtDetails;
-        // }
         // All guest ends here
         
         public function createUserMusician($full_name,$nick_name, $email, $phone_number, $password){
@@ -46,15 +36,15 @@ require_once("Config.php");
             $binder = array();
             return $this->read($query,$binder);
         }
-        public function getEachMusician($id){
-            $query = "SELECT * FROM musician_tb WHERE `musician_id` = ?";
-            $binder = array('s', $id);
+        public function getEachMusician($email){
+            $query = "SELECT * FROM musician_tb WHERE `email` = ?";
+            $binder = array('s', $email);
             return $this->read($query,$binder);
         }
         
-        public function musicianeditProfile($nick_name,$p_number,$country,$id){
-            $query = "UPDATE musician_tb SET `nick_name`= ?, `phone_number`= ?,`country`= ? WHERE `musician_id`= ?";
-            $binder = array('ssss',$nick_name,$p_number,$country,$id);
+        public function musicianeditProfile($nick_name,$p_number,$country,$music_style,$id){
+            $query = "UPDATE musician_tb SET `nick_name`= ?, `phone_number`= ?,`country`= ?, `music_style`= ? WHERE `musician_id`= ?";
+            $binder = array('sssss',$nick_name,$p_number,$country,$music_style,$id);
             return $this->update($query, $binder);
         }
         
@@ -74,9 +64,9 @@ require_once("Config.php");
             return $this->update($query, $binder);
         }
 
-        public function musicianUpdateProfile($category,$country,$town,$priceRange,$image,$email){
-            $query = "UPDATE `musician_tb` SET `category`= ?,`country`= ?,`town`= ?,`price_range`= ?, `image`= ? WHERE email= ?";
-            $binder = array('ssssss',$category,$country,$town,$priceRange,$image,$email);
+        public function musicianUpdateProfile($category,$country,$town,$priceRange,$image,$musicStyle,$eventStyle,$email){
+            $query = "UPDATE `musician_tb` SET `category`= ?,`country`= ?,`town`= ?,`price_range`= ?, `image`= ?, `music_style`=?, `event_style`=?  WHERE email= ?";
+            $binder = array('ssssssss',$category,$country,$town,$priceRange,$image,$musicStyle,$eventStyle,$email);
             return $this->update($query,$binder);
         }
 
